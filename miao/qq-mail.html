@@ -5,35 +5,37 @@
   <meta name="viewport" content="width=device-width">
   <title>JS Bin</title>
   <style >
-
-  html{
-  	height:100%;
-  }
-  	div{
-  	 	background-color: lightgrey;
-     	border: hidden;
-	}
-	.foo{
-  		 width:100%;
-    	 height:100px;
-	}
-
-	.bar{
-     	width:220px;
-     	height:100%;
-     	margin-top: 2px;
-	}
-
-	.baz{
- 		margin-left:222px;
-  		height:100%;
-  		margin-top:-100%;
-	}
+    html, body{
+      height:100%;
+      margin:0;
+    }
+    header{
+      height:100px;
+      background-color: #1c3d5e;
+      box-sizing:border-box;
+      border-bottom:2px solid black;
+      color:white;
+    }
+    aside{
+      width:150px;
+      background-color: #1c3d5e;
+      height:calc(100% - 100px);
+      border-right:2px solid black;
+      box-sizing:border-box;
+      color:white;
+    }
+    main{
+      background-color: #eaf8db;
+      margin-left: 150px;
+      margin-top: calc(-100vh + 100px);
+      height:calc(100% - 100px);
+    }
+  
   </style>
 </head>
 <body>
-<div class="foo"></div>
-<div class="bar"></div>
-<div class="baz"></div>
+<header>mail</header>
+<aside>aside-bar</aside>
+<main>mail-list</main>
 </body>
 </html>
