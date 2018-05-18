@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+   <xmeta http-equiv="refresh" content="5">
+  <title>JS Bin</title>
+  <style>
+    main{
+      margin:auto;
+      margin-top: calc(50vh - 50px);
+      width:400px;
+      height:200px;
+      background-color: #dddddd;
+      border-radius: 9999px;
+      overflow: hidden;
+      position: relative;
+      box-shadow:
+      0px 5px 20px 2px #c3c3c3 inset;
+      }
+    .whitespace{
+      width:180px;
+      height:180px;
+      background-color: #ffffff;
+      border-radius: 9999px;
+      box-shadow:
+              0 0 0 0 #dddddd,
+              0px 6px 5px 2px #bab9bb,
+              0px -3px 10px 2px #dddddd inset;
+      position: absolute;
+      left:10px;
+      top:10px;
+      transition: 
+              width .6s ,
+              height .6s ,
+              outline .6s ,
+              box-shadow .6s ;
+
+      }
+      label{
+        position:absolute;
+        top:0px;
+        right:400px;
+        transition: 
+                right .6s,
+                top .6s;
+      }
+      input:checked + label>.whitespace{
+      width:180px;
+      height:180px;
+      border-radius: 9999px;
+      box-shadow:
+              0px 6px 5px 2px #64ae5b,
+              0 0 0 400px #6edc60,
+              0px -3px 10px 2px #dddddd inset;
+      xposition: absolute;
+      right:190px;
+      top:10px;
+     }
+     input:checked + label{
+      position: absolute;
+      right:200px;
+      top:0px;
+     }
+  </style>
+</head>
+<body>
+  <main>
+      <input type="checkbox" id="gender">
+      <label for="gender">
+        <div class="whitespace"></div>
+      </labei>
+  </main>
+</body>
+</html>
