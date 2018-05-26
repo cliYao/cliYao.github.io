@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    .sticky{
+      width: 400px;
+      height:400px;
+      text-align: left;
+      margin:auto;
+      position:relative;
+      }
+    footer{
+      position:absolute;
+      left: 0;
+      bottom: 0;
+      background-color:#ddd;
+      text-align: left;
+      padding:0 999
+      }
+    a{
+      color:lightblue;
+      text-decoration: none;
+      }
+    a:hover{
+     color:darkblue;
+      text-decoration:underline;
+      }
+    .浮动{
+      min-width: 160px;
+      width: 400px;
+      height: 200px;
+      }
+    .s1,.s2,.s3{
+      float: right;
+      width: 40px;
+      height: 200px;
+      } 
+    .s1{
+      background-color:lightgreen;
+      float:left;
+      }
+    .s2{
+      background-color:lightpink;
+      }
+    .s3{
+      background-color:#ddd;
+      }
+    .s4{
+      height: 40px;
+      background-color:lightblue;
+      overflow: hidden;
+      }
+    .s5{
+      height:160px;
+      background-color:lightyellow;
+      overflow: hidden;
+      }
+    .定位{
+      width: 400px;
+      height: 200px;
+      min-width:160px;
+      position:relative;
+      }
+
+    .a1{
+      position:absolute;
+      top:0;
+      left: 0;
+      width:40px;
+      height: 200px;
+      background-color:lightgreen;
+      }
+    .a2{
+      position:absolute;
+      top: 0;
+      right: 0;
+      width: 40px;
+      height: 200px;
+      background-color:lightpink;
+      }
+    .a3{
+      position:absolute;
+      top:0;
+      right: 40px;
+      width: 40px;
+      height: 200px;
+      background-color:lightgrey;
+      }
+    .a4{
+      position:absolute;
+      top: 0;
+      left: 40px;
+      right: 80px;
+      bottom: 160px;
+      background-color: lightblue;
+      }
+    .a5{
+      position:absolute;
+      top:40px;
+      right: 80px;
+      bottom: 0;
+      left: 40px;
+      background-color:lightyellow;
+      }
+
+    .朋友圈布局{
+      width: 330px;
+      height: 330px;
+      margin:0;
+      overflow:hidden;
+      }
+    .朋友圈布局 div{
+      width: 100px;
+      height: 100px;
+      background-color:grey;
+      margin: 5px;
+      float: left;
+      }
+
+    .朋友圈布局 div:first-child:nth-last-child(1){
+      width: 320px;
+      height: 320px;
+      }
+    .朋友圈布局 div:first-child:nth-last-child(2) ~ div{
+      width: 320px;
+      height: 155px;
+      }
+    .朋友圈布局 div:nth-last-child(2){
+      width: 320px;
+      height: 155px;
+      }
+    .朋友圈布局 div:first-child:nth-last-child(3) ~ div{
+      width: 155px;
+      height: 110px;
+      }
+    .朋友圈布局 div:nth-last-child(3){
+      width: 320px;
+      height:200px;
+      }
+    .朋友圈布局 div:first-child:nth-last-child(4) ~ div{
+      width: 155px;
+      height: 155px;
+      }
+    .朋友圈布局 div:nth-last-child(4){
+      width: 155px;
+      height: 155px;
+      }
+    .朋友圈布局 div:first-child:nth-last-child(5) ~ div{
+      width: 72px;
+      height: 72px;
+      }
+    .朋友圈布局 div:nth-last-child(5){
+      width:320px;
+      height: 238px;
+      }
+    .朋友圈布局 div:first-child:nth-last-child(6) ~ div{
+      width: 100px;
+      height: 155px;
+      }
+    .朋友圈布局 div:nth-last-child(6){
+       width: 100px;
+       height: 155px;
+      }
+    .朋友圈布局 div:first-child:nth-last-child(7) ~ div{
+      width: 100px;
+      height: 100px;
+      }
+    .朋友圈布局 div:nth-last-child(7){
+      width: 320px;
+      height: 100px;
+      }
+    .朋友圈布局 div:first-child:nth-last-child(8) ~ div{
+      width: 100px;
+      height: 100px;
+      }
+    .朋友圈布局 div:nth-last-child(8){
+      width: 100px;
+      height: 210px;
+      }
+    .朋友圈布局 div:first-child:nth-last-child(9) ~ div{
+      width: 100px;
+      height: 100px;
+      }
+    .朋友圈布局 div:nth-last-child(9){
+      width: 100px;
+      height: 100px;
+      }
+  </style>
+</head>
+<body>
+  <div  class="sticky">
+    <h1>Sticky footer</h1>
+    <p>Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
+    <p>Use <a href="">the sticky footer with a fixed navbar</a> if need be, too.</p>
+    <footer>Place sticky footer content here.
+  </div>
+   <br>
+  <section class="浮动">
+    <div class="s1"></div>
+    <div class="s2"></div>
+    <div class="s3"></div>
+    <div class="s4">浮动</div>
+    <div class="s5"></div>
+  </section>
+  <br>
+  <section class="定位">
+    <div class="a1"></div>
+    <div class="a2"></div>
+    <div class="a3"></div>
+    <div class="a4">定位</div>
+    <div class="a5"></div>
+  </section>
+  <br>
+  
+    <section class="朋友圈布局">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div> 
+      <div></div>  
+      <div></div> 
+      <div></div> 
+    </section>
+</body>
+</html>
