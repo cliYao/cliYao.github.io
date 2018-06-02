@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    *{
+  padding:0;
+  margin:0;
+  font-family: "Helvetica";
+}
+main{
+  width: 1226px;
+  min-width:1000px;
+  padding:0;
+  margin:auto;
+  background-color:#fff;
+}
+section{
+  width: 1226px;
+  min-width:1000px;
+  padding:0;
+  margin:auto;
+}
+.背景色{
+  background-color: #333;
+}
+.背景色2{
+  background-color: #fff;
+}
+.背景色3{
+  background-color: rgb(245,245,245);
+}
+/*以上为h全局样式设置*/
+
+.header-top{
+  background-color: #333;
+  width: 1226px;
+  height: 40px;
+  position:relative;
+  margin:auto;
+}
+.header-top .nav-bar{
+  list-style:none;
+  position:absolute;
+  top:0;
+  left:0;
+}
+.header-top .nav-bar li{
+  display: inline-block;
+  line-height:40px;
+  text-align: center;
+  border-right:1px solid #444;
+}
+.header-top .nav-bar li a{
+  text-decoration: none;
+  color:#ccc;
+  font-size:16px;
+  margin:10px;
+}
+.header-top .nav-bar li:hover a{
+  color:#fff;
+}
+.header-top .onlead-bar{
+  list-style:none;
+  position:absolute;
+  top:0;
+  right:120px;
+}
+.header-top .onlead-bar li{
+  display: inline-block;
+  line-height:40px;
+  border-right:1px solid #444;
+  text-decoration: none;
+  color:#ccc;
+  font-size:16px;
+  margin-right:20px;
+}
+.header-top .onlead-bar li:hover{
+  color:#fff;
+}
+.header-top .gouwuche{
+  position:absolute;
+  top: 0;
+  right: 0;
+  background-color:#444;
+  color:#ccc
+}
+.header-top .gouwuche span{
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+  line-height:40px;
+  text-align: center;
+}
+.header-top .gouwuche span:hover{
+  color:rgb(255,103,0);
+}
+.header-top .gouwuche span span{
+  position:absolute;
+  width: 350px;
+  height:0px;
+  top: 40px;
+  right: 0;
+  transition: height .2s,color .2s;
+  font-size:0px;
+
+}
+.header-top .gouwuche:hover span span{
+  position:absolute;
+  width: 350px;
+  height: 100px;
+  top: 40px;
+  right: 0;
+  line-height:100px;
+  background-color: #fff;
+  z-index:1;
+  color:#444;
+  font-size:12px;
+  box-shadow:0 0 10px 0px #ddd;
+}
+
+/*以上为header部分样式*/
+
+
+.产品导航{
+  width:1226px;
+  height: 100px;
+  position:relative;
+  line-height: 100px;
+}
+.产品导航 .xiaomiicon{
+  width: 55px;
+  height: 55px;
+  background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAb1BMVEX/ZwD/////bBH/agn/WgD/YwD/j17/18f/6N7/7uf/XQD/0cD/hEn/n3f/YQD/bhb/q4z/dSr/VQD/ejf/xrD/gUT/m3H/9O//+vf/oXv/uZ7/i1j/08P/ezv/dzH/3c//lGX/tJf/iFH/v6b/sZOm1feNAAAC60lEQVR4nO3d7U7qQBRG4RnsWJ1iUVpQ9BxB8P6v8YD+OKEzGGpoyruzVsK/EvbDRxuaTOv8oXYzc9aabdovm9s/qhjD2PMMUIh1+S38mI89y2DNdwdhZRe4J5Z7YRx7ikEL3rW2hbFyG4s7mf+FpbN3mDiuGXuAwZuMPcDgIdQPoX4I9UOoH0L9EOqHUD+E+iHUD6F+CPVDqB9C/RDqh1A/hPoh1A+hfgj1Q6gfQv0Q6odQP4T6IdQPoX4I9UOoH0L9EKaFC/XrVxtaGG8v0dviqSjOWF8dt+lTe64I7SuMpb9Uz+vX7fxnZHzNPK/qR+wrLO4vJjz0spv8NG/2/bwrlIT72lAbF3q/Orlc3orQl6d+jWaE/nmW/6baEXrfZImWhHmiKaGfZH6LtoT3mcFtCX2bTm5M6BfJ99Sa8C458lsT+rfuh2hOWHZnNyf05j9Dv+oc9q9H+PZ0XovN54//oLt/bq9GWBVnn52pY7F6PinsHvWvR9jrvEI9z52b+O5qP8OeJ4eK21PCp+N9jazQxc0J4daK0BW7vHB5vDMVFrriJSt8sCOsH60LXW1eWKytC+tP68KQPSaaEjbmhTNlYYiTm6Tuu6AsDH9zw3ffBmXhiaN5ZzCECBEiRIgQIUKECBEiRIgQIUKECBEiRIgQIUKECBEiRIgQIUKECBEiRIgQIUKEZoV/LiZcjS+MVeY1H4/nCtPc8OvuyrvcuqDmeGVX/ZHZph32GkMuLqbdmu5L1rNkm+k0matOt0muHBGbZJvFwNeJOu/qW+dd2+t32wx+rS+5EOqHUD+E+iHUD6F+CPVDqB9C/RDqh1A/hPoh1A+hfgj1Q6gfQv0Q6odQP4T6IdQPoX4I9UOoH0L9EOqHUD+E+iHUD6F+CPWbuNnYIwxbaNym73I3rcKD67kkU61YOZ+/Nb2Rwo13vkxupWyo+Xov9DuzxDBv/UHoyxAt7m5CdIcb9LmvFeDV8j29y5Z478vvlfX/AOjtWWIo/hSQAAAAAElFTkSuQmCC);
+  background-size:100%;
+  display: inline-block;
+  vertical-align:middle;
+}
+
+.产品导航 .xiaomiicon a{
+  display: block;
+  width: 55px;
+  height: 55px;
+}
+
+.产品导航 .产品分类导航{
+  width: 850px;
+  height: 100px;
+  margin-left:55px;
+  display: inline-block;
+  line-height:100px;
+  text-align: center;
+}
+.产品导航 .产品分类导航 ul{
+  list-style:none;
+  width: 600px;
+  height:100px;
+}
+
+.产品导航 .产品分类导航 ul>li{
+  display: inline-block;
+  color:#333;
+  padding:0 10px;
+  line-height:100px;
+  margin-right:-10px;
+}
+
+.产品导航 .产品分类导航 ul li ul{
+  position:absolute;
+  top:100px;
+  left: 0px;
+  height:0px;
+  z-index:1;
+  line-height: normal;
+  transition:height .2s;
+  background-color: #fff;
+}
+
+.产品导航 .产品分类导航 ul li:hover ul{
+  position:absolute;
+  top:100px;
+  left: 0px;
+  width:100%;
+  height:250px;
+  z-index:5;
+  line-height: normal;
+  box-shadow:0 1px 2px 0px #ddd;
+}
+.产品导航 .产品分类导航 ul li ul li{
+  width: 0;
+  height: 0;
+  border-right:1px solid #ddd;
+}
+.产品导航 .产品分类导航 ul li ul li img{
+  width:0;
+  height:0;
+}
+.产品导航 .产品分类导航 ul li ul li a{
+  font-size:0;
+}
+.产品导航 .产品分类导航 ul li:hover{
+    color:rgb(255,103,0);
+}
+.产品导航 .产品分类导航 ul li:hover ul li{
+  float: left;
+  position:relative;
+  width: 213px;
+  height: 250px;
+  text-align:center;
+  border-right:1px solid #ddd;
+  box-sizing:border-box;
+  transition:border-right .2s;
+  line-height:normal;
+
+  
+}
+.产品导航 .产品分类导航 ul li:hover ul li img{
+  width: 160px;
+  height: 110px;
+  margin-top:30px;
+  margin-bottom:20px;
+  
+}
+.产品导航 .产品分类导航 ul li:hover ul li a{
+  text-decoration: none;
+  color:#444;
+}
+.产品导航 .产品分类导航 ul li:hover ul li a span{
+  display:block;
+  margin:auto;
+ 
+}
+.产品导航 .产品分类导航 ul li:hover  ul li:last-child{
+  border-right-style: none;
+}
+
+.产品导航 .search全局{
+  width: 296px;
+  height: 50px;
+  position:absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin:auto 0 auto auto;
+}
+.产品导航 .search全局 input{
+  width: 246px;
+  height: 46px;
+  text-align:center;
+  position:absolute;
+  top: 0;
+  left: 0;
+  outline:#ddd;
+}
+.产品导航 .search全局 label{
+  border:1px solid #ccc;
+  box-sizing:border-box;
+  width: 50px;
+  height: 50px;
+  position:absolute;
+  top:0;
+  right:0;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAUVBMVEX///+SkpKMjIyPj4/FxcWKiorp6emzs7Ojo6P4+PjCwsL09PTW1tb8/Pzs7OyoqKjNzc2ZmZm6urrd3d2srKyXl5fJycnX19fk5OSfn5+3t7fYQXHvAAAG+klEQVR4nO2d65qiMAyGpZWzCAgqev8XujDu7Jq0RQ5twzB5/83u80C/kibpKR4ODMMwDMMwDMMwDMMwDMMwDMMwDMMwDMMwDMMwzCTSqKmyS9uWSVK28eVYNeeCuk326Kr4KqUQ8o3hrzquIuq2redclaJXE2iRIhRtdaZu4wqi7GFU91+lSG4/U2RxSuQned8iZXmnbu5s8myivH8ijyl1m+eQX+bIeyFkllO3eyrpRc7W96UxyH5GBKn6pi5EXE/Urf9M9FisbyBMtu5Xs/kDECLljVrDGOdk1Qd8IcrtepzT2g/4QsqOWomBLBxvd5++fCPHva3YpKUWrdlC+wQ0SOKsunddFHXdvcriRIYjX1zE1HJU0oepvTKUcaXOlYqoas1Zq0i2FhrzQN9WKepsZIrUXa4GkfKxrSzufNW2U8r4o9NoWr1GWW/JpeZagVMzzbM+i5X1dgw11ZmoFNlkO8ufoe4Jj61ILHRORsSzjOys88SydNXkmbSqQFk3c59y1xiCeLpo72wytffDeIF9pZrPuInQf1IyGSkXzoEqTV/RJ3BnpVWyXjwB6jSWSh4zEtwmmawI1bnitGRrr62LUAahKFe5eDX5E5Wtti4iUgSu7nLFKASpneIetxDBCiyRNCpi5ydtzAjSGkkUs2OrNVLsFWor84EcPTagS1Av2J4srZN1KMSSxf0cCQytLXbesAMjmiuiTygtrjyU8NHiaO/RM8hRR9scLXgoCnuPnkGG+tmqx0NemiTsF+5sdABFxdru0ydxQr1sOfOIoD+liImwk0Vm+/kxeD5BAh4hI7Xuz8/oBd6zUzipkNY/If6I/n0NzLld9DC0Eu/5N5za23akL2DYDz3nNTBeCSerKdBbC88HUmD/Xt28xIOdTH25Az8zAH1N4OYlBjqgMHR0AK+BZur1DAMchtLRW1Ko0OtJFGA/7kYIGO3y4uo1Oq6gc50F4yNQ6DMipjBSORsgcCD6XK5B6YazN6N1Eo+pKehbmTh7T1GD0eDxzDRwpS5DMXA1PueIYAHDVbwfAD7b5/Ti4uvFsCs9rriBfW2XKTEcDh4DIlTocJsWTC+kx1390pfChkohWIVy6cQbX04bs3+FRFbqUeH+PU28+2ix/4h/3H3W5i3zTqgyb1+zp5Rs9nTe/QwY7o66WkykXMU4QOtx5gEyspUotJrobPcy8eWzVdDGjKO3pIRbM3CX3VXedidc1Uc7M47SqZZwZwa93M3uWgG70fO5fTQQnWQbFekOKdrlduJN0XkW36f30OsdeIHOQyeOcXPua+BQ97t7OIAO9Ng/bo4Pyfs/zw7PKtj3dPAT+j6nMADDsfVNRHQS2uVikBF07syyJ0D3HB52nz6NIzp+aTVeoZPeNBdn4FZ3YPW4OfJjzk57fADdebJpp+iEMNXdJ+W4ubV24PtiV6orJbghthxeg2+UkF1fK64BwkpYxrFekjjSF/iGrJVCCMrlfsKbXeplQQvdrVxdo71Fir36+vt5ikAHh+RnodzBWnUNuDdRRaD/SQWiVLp8TcWOSCmw4XDPYCL4il7fpmBx0Gg0JUB87qnp6bCd9vOMhTci9WWYQq8rwTqUobiwXJexUBjR7cM3YrVlMpjtH27m4lj0EpUr9EOrklk7Ut1oqT7798Zmoi1QI8N48rQ/anUVeN4Iqb+iGqa/NMp40nfsDJWiwFeklqgG6r8ay0/jsaiSSZX6yCVqDTX4KhMcN8YsJ72PlGxDkAeNojS5il5keWxylK+meZMlk+V9SaT+iofnSFVBKWRdxll1anpOQ1HBuv+nmXUkyQ31cButDPleGvJDYcjtStQVQVqA+SHkY/GQj9S/nIzQJRDf/0f+FQ/V+iq7p8PRbO4bkJgbfeokfaIdQoumBNw/ieSG2k/y6uXVrh9/F52O5kfQB40+NN6WVfQW1//roiMSN2CofTg/itkahazek4KRosSbkNi7nHreLwc88Lr2mKFuYCwONO3kX38IdKVqt26oA3lVjhV8/itPtCf9mse2g8Y36T0OhCEDHbK44Hk3r6+OjcWNGOqL8+lS1oF4/ymd/o+gLrP7h1WAjQcNQJFHTXW8PJ9xHD+HH0OK8HRKy08Yiyv5GWNxFSMJ3FaCxlp+0lhcyC8Yi9tP4FbzAxK4tfwCQ/3dQWNbCdxyOGjsAQ4ae+A3jMURQ6Utv2+NsbG4g9+lHTAbKv3hKUuYJborquYZ41jcxG/SWMGUwJH/mok9DIa6m4F4MEnck0J90PB9jdYtuq9IfpjYLhqJYiu/Q2cJJWgIrwVcfYDGoiS7OeQOYKgy2EtG887byRZx3aPAwyFKQvHaq/shP8q+gPOtTcrnabf6GIZhGIZhGIZhGIZhGIZhGIZhGIZxxR/goz+23vTkBQAAAABJRU5ErkJggg==);
+  -webkit-background-size:100%;
+  background-size: ;
+}
+x.产品导航 .search全局 label img{
+  width: 50px;
+  height:50px;
+}
+
+
+/*以上为导航栏部分样式*/
+
+
+
+.页面主体{
+  width: 100%;
+  height: 1052px;
+  xbackground-color:#ddd;
+}
+
+.页面主体 .产品全览{
+  width: 100%;
+  height: 460px;
+  position:relative;
+}
+
+.页面主体 .产品全览 .新品大图展示{
+  width: 1226px;
+  height: 460px;
+  position:relative;
+}
+.页面主体 .产品全览 .新品大图展示 img{
+  width: 100%;
+  height: 460px;
+  position:absolute;
+  top: 0;
+  left:0;
+  transition:opacity .5s;
+  opacity:1;
+}
+
+.页面主体 .产品全览 .新品大图展示 img.c1{
+  animation: c1 30s linear infinite; 
+}
+@keyframes c1{
+  0{opacity:1}
+  15%{opacity:1}
+  16.7%{opacity:0}
+  100%{opacity:0}
+}
+.页面主体 .产品全览 .新品大图展示 img.c2{
+  animation: c2 30s linear infinite; 
+}
+@keyframes c2{
+   0{opacity:1}
+  31.67%{opacity:1}
+  33.33%{opacity:0}
+  100%{opacity:0}
+}
+.页面主体 .产品全览 .新品大图展示 img.c3{
+  animation: c3 30s linear infinite; 
+}
+@keyframes c3{
+   0{opacity:1}
+  48.33%{opacity:1}
+  50%{opacity:0}
+  100%{opacity:0}
+}
+.页面主体 .产品全览 .新品大图展示 img.c4{
+  animation: c4 30s linear infinite; 
+}
+@keyframes c4{
+   0{opacity:1}
+  65%{opacity:1}
+  67%{opacity:0}
+  100%{opacity:0}
+}
+.页面主体 .产品全览 .新品大图展示 img.c5{
+  animation: c5 30s linear infinite; 
+}
+@keyframes c5{
+   0{opacity:1}
+  81.67%{opacity:1}
+  83.33%{opacity:0}
+  100%{opacity:0}
+}
+.页面主体 .产品全览 .新品大图展示 img.c6{
+  animation: c6 30s linear infinite; 
+}
+@keyframes c6{
+  0{opacity:1}
+  98.33%{opacity:1}
+  100%{opacity:0}
+}
+.页面主体 .产品全览 .新品大图展示 input{
+  position:relative;
+  left:1100px;
+  top:430px;
+  z-index:3;
+}
+.页面主体 .产品全览 .侧边栏{
+  height: 460px;
+  width:250px;
+  background-color: rgba(0,0,0,0.3);
+  position:absolute;
+  top: 0;
+  left:0;
+  z-index:3;
+}
+.页面主体 .产品全览 .侧边栏 ul{
+  position:relative;
+  height: 460px;
+  width:250px;
+  list-style:none;
+  line-height: 46px;
+}
+.页面主体 .产品全览 .侧边栏 ul>li.侧边栏产品细分{
+  width: 250px;
+  height: 46px;
+  color:white;
+  padding-left:20px;
+  padding-right:0;
+}
+.页面主体 .产品全览 .侧边栏 ul>li.侧边栏产品细分::after{
+  content=">";
+}
+.页面主体 .产品全览 .侧边栏 ul li:hover{
+  background-color:rgb(255,103,0);
+}
+.页面主体 .产品全览 .侧边栏 ul li ul {
+  width: 0;
+  height:0;
+  top:0;
+  left: 250px;
+  font-size:0;
+}
+.页面主体 .产品全览 .侧边栏 ul li:hover ul{
+  position:absolute;
+  width: 732px;
+  height: 460px;
+  background-color: #fff;
+  box-shadow:1px 1px 2px 0px #ddd;
+  top:0;
+  left: 250px;
+  font-size:16px;
+}
+.页面主体 .产品全览 .侧边栏 ul li ul li{
+  width: 0;
+  height: 0;
+}
+.页面主体 .产品全览 .侧边栏 ul li ul li img{
+  width: 0;
+  height: 0;
+}
+.页面主体 .产品全览 .侧边栏 ul li:hover ul li img{
+  vertical-align:middle;
+  width: 40px;
+  height: 40px;
+}
+.页面主体 .产品全览 .侧边栏 ul li:hover ul li{
+  width: 230px;
+  height: 76px;
+  margin:1px 1px;
+  float:left;
+  color:#333;
+  text-align:center;
+}
+.页面主体 .产品全览 .侧边栏 ul li:hover ul li:hover{
+  background-color: #fff;
+  color:rgb(255,103,0);
+}
+.页面主体 .小米5系列{
+  width: 100%;
+  height: 170px;
+  margin:10px 0;
+}
+.页面主体 .小米5系列 div{
+  width: 316px;
+  height: 170px;
+  margin-right:10px;
+  float:left;
+  background-color: red;
+  
+}
+.页面主体 .小米5系列 div:first-child{
+  width: 248px;
+  background-color: brown;
+  margin-left:0;
+}
+.页面主体 .小米5系列 div:last-child{
+  margin-right:0;
+}
+.页面主体 .小米5系列 div img{
+  width: 100%;
+  justify-content: 100%;
+}
+
+/*以上为大图展示部分样式*/
+
+
+.页面主体 .小米闪购{
+  width: 1226px;
+  height: 398px;
+  xbackground-color: #ddd;
+}
+.页面主体 .小米闪购 p{
+  width: 1226px;
+  height: 58px;
+  font-size:28px;
+  display:table-cell;
+  vertical-align:bottom;
+}
+.页面主体 .小米闪购 .抢购专场{
+  width: 240px;
+  height: 340px;
+  background-color:rgb(247,231,231);
+  float: left;
+  margin-right:0px;
+  border-top:1px solid red;
+}
+.图片轮播{
+  position:relative;
+  width: 980px;
+  height: 398px;
+  overflow: hidden;
+  float: left;
+  top:-25px
+}
+.图片轮播 input{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  position:relative;
+  top:00px;
+  left:922px;
+}
+.图片轮播 ul{
+  list-style:none;
+  width: 980px;
+  height: 340px;
+  xmargin-left:30px;
+}
+.图片轮播 li{
+  display: inline-block;
+  width: 230px;
+  height: 340px;
+  background-color:rgb(250,250,250);
+  text-align: center;
+  margin:0px 3px;
+}
+.图片轮播 img{
+  width: 160px;
+  height: 160px;
+  margin-top:20px;
+}
+.图片轮播 .第一页{
+  position:absolute;
+  top:25px;
+  left: 10px;
+  transition: left .5s;
+}
+.图片轮播 .第二页{
+  position:absolute;
+  top:25px;
+  left:997px;
+  transition: left .5s;
+}
+.图片轮播 .s1:checked + * + ul{
+  left: -942px;
+}
+.图片轮播 .s1:checked + * + * + ul{
+  left: 20px;
+}
+x.图片轮播 .第一页{
+  animation: dyul 8s linear infinite; 
+}
+x@keyframes dyul{
+  0{left: 10px;}
+  100%{left: -942px;}
+}
+x.图片轮播 .第二页{
+  animation: deul 8s linear infinite; 
+}
+x@keyframes deul{
+  0{left: 997px;}
+  100%{left: 20px;}
+}
+.图片轮播 ul li:nth-child(1){
+  border-top:1px solid orange;
+}
+.图片轮播 ul li:nth-child(2){
+  border-top:1px solid green;
+}
+.图片轮播 ul li:nth-child(3){
+  border-top:1px solid blue;
+}
+.图片轮播 ul li:nth-child(4){
+  border-top:1px solid red;
+}
+.黑鲨游戏手机 img{
+  width: 1216px;
+  height: 120px;
+  margin-top:-40px;
+  float: left;
+}
+
+
+/*以上为小米闪购部分样式*/
+
+.产品页{
+  margin-top:160px;
+  width: 100vw;
+  height: 6500px;
+  background-color:rgb(245,245,245);
+}
+
+.产品页>div{
+  width: 1226px;
+  height: 686px;
+}
+.产品页>div .产品名{
+ width: 1226px;
+  height: 58px;
+  font-size:28px;
+  display:table-cell;
+  vertical-align:bottom;
+}
+.产品页>div .产品内容{
+  width: 1226px;
+  height: 628px;
+  xbackground-color: #333;
+}
+.产品页>div .产品内容 div{
+  width: 234px;
+  height: 300px;
+  margin:5px;
+  float:left;
+  background-color:#fff;
+  text-align: center;
+}
+.产品页>div .产品内容 div:first-child {
+  width: 234px;
+  height: 614px;
+}
+.产品页>div .产品内容 div img{
+  width: 160px;
+  height: 160px;
+  margin-top: 20px;
+}
+.产品页>div .产品内容 div:nth-child(6) img{
+  width: 160px;
+  height: 160px;
+  margin-top:0;
+}
+.产品页>div .产品内容 div:first-child img{
+  width: 234px;
+  height: 614px;
+  margin: 0;
+}
+.产品页>div .产品内容 div a{
+  color:#333;
+  text-decoration: none;
+}
+
+.产品页>img{
+  width: 1216px;
+  height: 120px;
+}
+.产品页>div:nth-child(n + 2):nth-child(-n + 15) .产品内容 div{
+  width: 234px;
+  height: 300px;
+  margin:5px;
+  float:left;
+  background-color:#fff;
+  text-align: center;
+}
+.产品页>div:nth-child(n + 2):nth-child(-n + 15) .产品内容 div img{
+  width: 150px;
+  height: 150px;
+}
+.产品页>div:nth-child(n + 2):nth-child(-n + 15) .产品内容 div:nth-child(1) img, .产品页>div:nth-child(n + 2):nth-child(-n + 15) .产品内容 div:nth-child(6) img{
+  width: 234px;
+  height: 300px;
+}
+.产品页>div:nth-child(12){
+  width: 1226px;
+  height: 320px;
+}
+.产品页>div:nth-child(12) .产品内容 div:first-child img{
+  width: 150px !important;
+  height: 150px !important;
+  margin-top: 20px;
+}
+.产品页>div:nth-child(13){
+  width: 1226px;
+  height: 415px;
+}
+.产品页>div.热评产品 .产品内容 div{
+  width: 296px !important;
+  height: 415px !important;
+}
+.产品页>div.热评产品 .产品内容 div img{
+  width: 296px !important;
+  height: 220px !important;
+  margin:0;
+}
+.产品页>div.内容{
+  width: 1226px;
+  height: 420px;
+}
+.产品页>div.内容 .产品内容 div{
+  width: 296px !important;
+  height: 415px !important;
+}
+.产品页>div.内容 .产品内容 div:nth-child(1){
+  border-top:1px solid orange;
+}
+.产品页>div.内容 .产品内容 div:nth-child(2){
+  border-top:1px solid green;
+}
+.产品页>div.内容 .产品内容 div:nth-child(3){
+  border-top:1px solid red;
+}
+.产品页>div.内容 .产品内容 div:nth-child(4){
+  border-top:1px solid blue;
+}
+.产品页>div.内容 .产品内容 div img{
+   width: 216px !important;
+  height: 154px !important;
+  margin:0;
+}
+.产品页>div.视频{
+  width: 1226px;
+  height: 285px;
+}
+
+.产品页>div.视频 .产品内容 div{
+  width: 296px !important;
+  height: 285px !important;
+}
+
+.产品页>div.视频 .产品内容 div img{
+  width: 296px !important;
+  height: 180px !important;
+  margin:0;
+}
+.产品页 div div div{
+  position:relative;
+  top:0;
+  xbox-shadow:0 3px 20px #ccc;
+  transition:top .3s;
+}
+
+.产品页 div div div:hover{
+  position:relative;
+  top: -3px;
+  box-shadow:0 5px 20px #bbb;
+  transition:top .3s;
+}
+
+.产品页 div div div::after{
+  content:"";
+  position:absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0px;
+  background-color:rgb(255,103,0);
+  transition:height 0.5s;
+}
+.产品页 div.家电 div div:hover::after, .产品页 div.智能 div div:hover::after, .产品页 div.搭配 div div:hover::after , .产品页 div.配件 div div:hover::after, .产品页 div.周边 div div:hover::after{
+  content:"";
+  position:absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color:rgb(255,103,0);
+}
+.产品页 div div div:nth-child(1):hover::after,.产品页 div div div:nth-child(6):hover::after{
+  height: 0;
+}
+
+
+/*以上为产品页部分样式*/
+
+.页脚主体{
+  width: 1226px;
+  height: 320px;
+  min-width:1000px;
+  padding:0;
+  margin:auto;
+  background-color:#fff;
+  position:relative;
+}
+ 
+.页脚主体 .售后服务{
+  width: 1226px;
+  height: 80px;
+  background-color:#fff;
+  line-height:80px;
+  text-align: center;
+  position:absolute;
+  top:0x;
+  left: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.售后服务 li{
+  display: inline-block;
+  width: 230px;
+  height: 25px;
+  background-color: #fff;
+  line-height:80px;
+  font-size:24px;
+}
+
+.页脚主体 table{
+  width: 1000px;
+  height: 200px;
+  text-align:left;
+  position:absolute;
+  top: 90px;
+}
+
+.页脚主体 table thead{
+line-height:30px;
+}
+
+.页脚主体 table{
+  border-right: 1px solid #ddd;
+}
+
+.页脚主体 .联系我{
+  width: 200px;
+  height: 200px;
+  position:absolute;
+  top: 90px;
+  right: 0;
+  text-align:center;
+}
+.页脚主体 .联系我 .热线{
+  font-size:30px;
+  color:rgb(255,103,0);
+  font-weight: bold;
+  margin-top: 35px;
+}
+
+.页脚主体 .联系我 p{
+  margin-left: -10px;
+}
+
+.页脚主体 .联系我 span{
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  border:1px solid rgb(255,103,0);
+  color:rgb(255,103,0);
+  position:absolute;
+  top: 140px;
+  right:25px;
+  line-height: 50px;
+}
+
+ footer{
+  height: 166px;
+  background-color:rgb(245,245,245);
+  position:relative;
+    
+}
+
+
+footer .页脚{
+  width: 1226px;
+  min-width:1000px;
+  padding:0;
+  margin:auto;
+}
+
+footer .页脚 img{
+  width: 57px;
+  height: 57px;
+  margin-top:30px;
+  float: left;
+}
+footer .页脚 ul{
+  list-style:none;
+  float: left;
+  margin-top: 30px;
+}
+
+footer .页脚 ul li{
+  display: inline;
+}
+
+footer .页脚 span{
+  width:600px;
+  float: left;
+  margin-top:5px;
+  line-height:20px;
+}
+
+footer .页脚{
+  font-size:12px;
+}
+
+.小米为发烧而生{
+  position:absolute;
+  left: 50%;
+  bottom: 0;
+}
+  </style>
+</head>
+<body>
+  <div class="背景色">
+    <header class="header-top">
+      <ul class="nav-bar">
+        <li><a href="">小米商城</a></li>
+        <li><a href="">MIUI</a></li>
+        <li><a href="">IoT</a></li>
+        <li><a href="">云服务</a></li>
+        <li><a href="">小米开放平台</a></li>
+        <li><a href="">金融</a></li>
+        <li><a href="">有品</a></li>
+        <li><a href="">政企服务</a></li>
+        <li><a href="">SelectRegion</a></li>
+      </ul>
+      <ul class="onlead-bar">
+        <li>登录</li>
+        <li>注册</li>
+        <li>消息通知</li>
+      </ul>
+      <div class="gouwuche">
+        <span >购物车(0)
+          <span>购物车中还没有商品，赶紧选购吧</span>
+        </span>
+      </div>
+   </header>
+  </div >
+  
+ <! 以上为header部分>
+  
+ <div class="背景色2">
+  <main>
+    <div class="产品导航">
+  <div class="xiaomiicon"><a href="www.xiaomi.com"></a></div>
+  <div class="产品分类导航">
+     <ul>
+       <li>小米手机
+           <ul>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2s320-220white.png" alt=""><span>小米MIX2S</span><br><span>3299元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2320-220.png" alt=""><span>小米MIX2</span><br><span>2899元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/32022012085.jpg" alt=""><span>小米6X</span><br><span>1699元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note2320x220.png" alt=""><span>小米Note3</span><br><span>1399元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/max2_toubu.png" alt=""><span>小米Max2</span><br><span>999元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/5x-2.jpg" alt><span>小米5X</span><br><span>999元</span></a></li>
+           </ul>
+       </li>
+       <li>红米
+           <ul>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-320-220.png" alt=""><span>红米</span><br><span>3299元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2320-220.png" alt=""><span>小米MIX2</span><br><span>2899元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/32022012085.jpg" alt=""><span>小米6X<</span><br><span>1699元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note2320x220.png" alt=""><span>小米Note3</span><br><span>1399元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/max2_toubu.png" alt=""><span>小米Max2</span><br><span>999元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/5x-2.jpg" alt><span>小米5X</span><br><span>999元</span></a></li>
+           </ul>
+       </li>
+       <li>电视
+           <ul>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2s320-220white.png" alt=""><span>小米MIX2S</span><br><span>3299元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2320-220.png" alt=""><span>小米MIX2</span><br><span>2899元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/32022012085.jpg" alt=""><span>小米6X<</span><br><span>1699元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note2320x220.png" alt=""><span>小米Note3</span><br><span>1399元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/max2_toubu.png" alt=""><span>小米Max2</span><br><span>999元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/5x-2.jpg" alt><span>小米5X</span><br><span>999元</span></a></li>
+           </ul>
+       </li>
+       <li>笔记本
+           <ul>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2s320-220white.png" alt=""><span>小米MIX2S</span><br><span>3299元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2320-220.png" alt=""><span>小米MIX2</span><br><span>2899元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/32022012085.jpg" alt=""><span>小米6X<</span><br><span>1699元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note2320x220.png" alt=""><span>小米Note3</span><br><span>1399元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/max2_toubu.png" alt=""><span>小米Max2</span><br><span>999元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/5x-2.jpg" alt><span>小米5X</span><br><span>999元</span></a></li>
+           </ul>
+       </li>
+       <li>盒子
+           <ul>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2s320-220white.png" alt=""><span>小米MIX2S</span><br><span>3299元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2320-220.png" alt=""><span>小米MIX2</span><br><span>2899元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/32022012085.jpg" alt=""><span>小米6X<</span><br><span>1699元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note2320x220.png" alt=""><span>小米Note3</span><br><span>1399元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/max2_toubu.png" alt=""><span>小米Max2</span><br><span>999元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/5x-2.jpg" alt><span>小米5X</span><br><span>999元</span></a></li>
+           </ul>
+       </li>
+       <li>新品
+           <ul>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2s320-220white.png" alt=""><span>小米MIX2S</span><br><span>3299元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2320-220.png" alt=""><span>小米MIX2</span><br><span>2899元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/32022012085.jpg" alt=""><span>小米6X<</span><br><span>1699元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note2320x220.png" alt=""><span>小米Note3</span><br><span>1399元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/max2_toubu.png" alt=""><span>小米Max2</span><br><span>999元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/5x-2.jpg" alt><span>小米5X</span><br><span>999元</span></a></li>
+           </ul>
+       </li>
+       <li>路由器
+           <ul>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2s320-220white.png" alt=""><span>小米MIX2S</span><br><span>3299元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2320-220.png" alt=""><span>小米MIX2</span><br><span>2899元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/32022012085.jpg" alt=""><span>小米6X<</span><br><span>1699元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note2320x220.png" alt=""><span>小米Note3</span><br><span>1399元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/max2_toubu.png" alt=""><span>小米Max2</span><br><span>999元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/5x-2.jpg" alt><span>小米5X</span><br><span>999元</span></a></li>
+           </ul>
+       </li>
+       <li>智能硬件
+           <ul>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2s320-220white.png" alt=""><span>小米MIX2S22222</span><br><span>3299元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2320-220.png" alt=""><span>小米MIX2</span><br><span>2899元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/32022012085.jpg" alt=""><span>小米6X<</span><br><span>1699元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note2320x220.png" alt=""><span>小米Note3</span><br><span>1399元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/max2_toubu.png" alt=""><span>小米Max2</span><br><span>999元<span></a></li>
+             <li><a href=""><img src="https://i1.mifile.cn/f/i/g/2015/5x-2.jpg" alt><span>小米5X</span><br><span>999元</span></a></li>
+           </ul>
+       </li>
+       <li>服务</li>
+       <li>社区</li>
+     </ul>
+   </div>
+  <div class="search全局">
+    <input type="text" id="gender" placeholder="&nbsp;电视新品 618预热"><label for="gender"><img src="" alt=""></label>
+  </div>
+</div>
+ 
+   <!以上为导航栏部分>  
+ 
+ <div class="页面主体">
+  <div class="产品全览">
+     <div class="新品大图展示">
+     <input class="i1" type="radio" name="picture">
+     <input class="i2" type="radio" name="picture">
+     <input class="i3" type="radio" name="picture">
+     <input class="i4" type="radio" name="picture">
+     <input class="i5" type="radio" name="picture">
+     <input class="i6" type="radio" name="picture">
+     <img class="c6" src="https://i1.mifile.cn/a4/xmad_15246478163469_wyOCc.jpg" alt="">
+     <img class="c5" src="https://i1.mifile.cn/a4/xmad_1527232447293_lPUGs.jpg" alt="">
+     <img class="c4" src="https://i1.mifile.cn/a4/xmad_15274262638597_TXOYm.jpg" alt="">
+     <img class="c3" src="https://i1.mifile.cn/a4/xmad_15266344919905_otiwQ.jpg" alt="">
+     <img class="c2" src="https://i1.mifile.cn/a4/xmad_15263512985308_ricKu.jpg" alt="">
+     <img class="c1" src="https://i1.mifile.cn/a4/xmad_15269873893467_qTaQf.jpg" alt="">
+     </div>
+    <div class="侧边栏">
+      <ul>
+      <li class="侧边栏产品细分">手机 电话卡
+        <ul>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/max2_80.jpg"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80808080808080.jpg"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-80-80.png"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/15/goods/sidebar/compare.jpg"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/heisha-80.png"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/s2-80-80.png"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mifenka-1.jpg"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note3-80-2.png"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/redmi5P-80-80.png"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/15/goods/sidebar/mimobile.jpg"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2-80.png"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/redmi5-80-80.png"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/weixiu80-80.png"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/80pc-5x.png"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80-5a.png"><span>小米MIX2S</span></li>
+        </ul>
+      </li>
+      <li class="侧边栏产品细分">电视 盒子
+        <ul>
+          <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/zuodaohang.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/xp80_55.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/xin43.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/4S55-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/4a4080.80.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/xp80_65.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80_8032tv.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/80_80.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/4A43.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/4x55.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80xmds_49.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/4s438080.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/43qingchunban80_80.jpg?width=80&height=80><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/4c328080.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80xmds_55.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/324S80.80.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/xp80_49.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+        </ul>
+      </li>
+      <li class="侧边栏产品细分">笔记本<ul>
+        <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/max2_80.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80808080808080.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/15/goods/sidebar/compare.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/heisha-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/s2-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mifenka-1.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note3-80-2.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/redmi5P-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/15/goods/sidebar/mimobile.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/redmi5-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/weixiu80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/80pc-5x.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80-5a.png?width=80&height=80"><span>小米MIX2S</span></li>
+      </ul></li>
+      <li class="侧边栏产品细分">智能 家电<ul>
+        <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/max2_80.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80808080808080.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/15/goods/sidebar/compare.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/heisha-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/s2-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mifenka-1.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note3-80-2.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/redmi5P-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/15/goods/sidebar/mimobile.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/redmi5-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/weixiu80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/80pc-5x.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80-5a.png?width=80&height=80"><span>小米MIX2S</span></li>
+      </ul></li>
+      <li class="侧边栏产品细分">健康 家居<ul>
+        <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/max2_80.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80808080808080.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/15/goods/sidebar/compare.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/heisha-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/s2-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mifenka-1.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note3-80-2.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/redmi5P-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/15/goods/sidebar/mimobile.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/redmi5-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/weixiu80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/80pc-5x.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80-5a.png?width=80&height=80"><span>小米MIX2S</span></li>
+      </ul></li>
+      <li class="侧边栏产品细分">出行 儿童<ul>
+        <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/max2_80.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80808080808080.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/15/goods/sidebar/compare.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/heisha-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/s2-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mifenka-1.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note3-80-2.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/redmi5P-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/15/goods/sidebar/mimobile.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/redmi5-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/weixiu80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/80pc-5x.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80-5a.png?width=80&height=80"><span>小米MIX2S</span></li>
+      </ul></li>
+      <li class="侧边栏产品细分">路由器 手机配件<ul>
+        <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/max2_80.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80808080808080.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/15/goods/sidebar/compare.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/heisha-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/s2-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mifenka-1.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note3-80-2.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/redmi5P-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/15/goods/sidebar/mimobile.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/redmi5-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/weixiu80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/80pc-5x.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80-5a.png?width=80&height=80"><span>小米MIX2S</span></li>
+      </ul></li>
+      <li class="侧边栏产品细分">移动电源 插线板<ul>
+        <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/max2_80.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80808080808080.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/15/goods/sidebar/compare.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/heisha-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/s2-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mifenka-1.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note3-80-2.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/redmi5P-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/15/goods/sidebar/mimobile.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/redmi5-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/weixiu80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/80pc-5x.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80-5a.png?width=80&height=80"><span>小米MIX2S</span></li>
+      </ul></li>
+      <li class="侧边栏产品细分">耳机 音箱
+       <ul>
+        <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/max2_80.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80808080808080.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/15/goods/sidebar/compare.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/heisha-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/s2-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mifenka-1.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note3-80-2.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/redmi5P-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/15/goods/sidebar/mimobile.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/redmi5-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/weixiu80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/80pc-5x.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80-5a.png?width=80&height=80"><span>小米MIX2S</span></li>
+      </ul></li>
+      <li class="侧边栏产品细分">生活 米兔
+       <ul>
+        <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/max2_80.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80808080808080.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/15/goods/sidebar/compare.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/heisha-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/s2-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mifenka-1.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note3-80-2.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/redmi5P-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/15/goods/sidebar/mimobile.jpg?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mix2-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/redmi5-80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/weixiu80-80.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/80pc-5x.png?width=80&height=80"><span>小米MIX2S</span></li>
+         <li><img src="https://i1.mifile.cn/f/i/g/2015/cn-index/80-5a.png?width=80&height=80"><span>小米MIX2S</span></li>
+      </ul></li>
+    </ul>
+   </div>
+  
+  </div>
+  <div class="小米5系列">
+    <div><img src="" alt=""></div>
+    <div><img src="https://i1.mifile.cn/a4/xmad_15248252135505_OQvah.jpg" alt=""></div>
+    <div><img src=" https://i1.mifile.cn/a4/xmad_15266345233081_RkALS.jpg" alt=""></div>
+    <div><img src="https://i1.mifile.cn/a4/xmad_15272384324037_uAyfD.png" alt=""></div>
+  </div>
+           
+   <!以上为大图展示部分>
+    
+        
+   <div class="小米闪购">
+   <p>小米闪购</p>
+    <div class="抢购专场" ></div>
+     <div class="图片轮播">
+       <input class="s1" type="radio" name="change">
+       <input class="s2" type="radio" name="change">
+      <ul class="第一页">
+       <li><img src="https://i8.mifile.cn/b2c-mimall-media/655f7c29d046dee8970b8533ca83f951.jpg" alt=""></li>
+       <li><img src="https://i8.mifile.cn/b2c-mimall-media/723987c49bdc277bb330ef540765e208.jpg" alt=""></li>
+       <li><img src="https://i8.mifile.cn/b2c-mimall-media/4c696ad4eec876ad049a47c0f4b2a04b.jpg" alt=""></li>
+       <li><img src="https://i8.mifile.cn/b2c-mimall-media/5e9f7144b38602c2ed12b7b191d4be15.jpg" alt=""></li>
+      </ul>
+      <ul class="第二页">
+       <li><img src="https://i8.mifile.cn/a1/pms_1524571235.37826274.jpg" alt=""></li>
+       <li><img src="https://i8.mifile.cn/v1/a1/29087f25-a8b1-b285-00fa-9e144076e2c4.jpg" alt=""></li>
+       <li><img src="https://i8.mifile.cn/v1/a1/c649f252-3187-a3e2-283a-0e9d8f36ed32.jpg" alt=""></li>
+       <li><img src="https://i8.mifile.cn/b2c-mimall-media/ed30a098e2f3a3e02ed5ff163eb309c6.jpg" alt=""></li>
+      </ul>
+      </div>
+    <div class="黑鲨游戏手机"><img src="https://i1.mifile.cn/a4/xmad_15236124748626_jUQzY.jpg" alt=""></div>
+  </div> 
+</main>
+           
+            <!以上为小米闪购部分>    
+           
+ <div class="背景色3">
+   <section>
+   <div class="产品页">
+   <div class="手机">
+    <p class="产品名">手机</p>
+    <div class="产品内容">
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_15272324858185_vuTtX.jpg" alt=""></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1508850965.67096774!220x220.jpg" alt=""><h5>小米5X 4GB+64GB</h5><p class="产品描述">光学变焦双摄 拍人更美</p><p class="产品价格">1299元 1499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1509723338.05097112!220x220.jpg" alt=""><h5>小米MIX2 全陶瓷尊享版</h5><p class="产品描述">全面屏2.0 Unibody 全陶瓷</p><p class="产品价格">3499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1508125822.19716710!220x220.jpg" alt=""><h5>红米5A 2GB内存</h5><p class="产品描述">8天超长待机 137g轻巧机身</p><p class="产品价格">569元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1512614327.2483640!220x220.jpg" alt=""><h5>红米5plus 3GB+32GB</h5><p class="产品描述">全面屏手机 400Ah大电量</p><p class="产品价格">949元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1525853341.8312102!220x220.jpg" alt=""><h5>红米S2 3GB+32GB</h5><p class="产品描述">前置1600万像素智能美拍</p><p class="产品价格">999元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1511228654.33099308!220x220.jpg" alt=""><h5>小米Note3 4GB+64GB</h5><p class="产品描述">1600万美颜自拍，两倍变焦双摄</p><p class="产品价格">1799元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1512612024.50854166!220x220.jpg" alt=""><h5>红米5 2GB+16GB</h5><p class="产品描述">5.7英寸全面屏 前置柔光自拍</p><p class="产品价格">749元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1495692033.10494295!220x220.jpg" alt=""><h5>小米Max2 4GB+64GB</h5><p class="产品描述">6.4英寸大屏 5700Ah超大电池</p><p class="产品价格">1499元</p></a></div>
+    </div>
+  </div>
+  <img src="https://i1.mifile.cn/a4/xmad_15271711154083_rTQVD.jpg" alt="">
+  <div class="家电">
+    <p class="产品名">家电</p>
+    <div class="产品内容">
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_15266395374048_JnZQo.jpg" alt=""></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1524883847.49276938!220x220.jpg" alt=""><h5>小米5X 4GB+64GB</h5><p class="产品描述">光学变焦双摄 拍人更美</p><p class="产品价格">1299元 1499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1522318330.86967810!220x220.jpg" alt=""><h5>小米MIX2 全陶瓷尊享版</h5><p class="产品描述">全面屏2.0 Unibody 全陶瓷</p><p class="产品价格">3499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1496997930.13622399!220x220.jpg" alt=""><h5>红米5A 2GB内存</h5><p class="产品描述">8天超长待机 137g轻巧机身</p><p class="产品价格">569元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1505897517.20426731!220x220.jpg" alt=""><h5>红米5plus 3GB+32GB</h5><p class="产品描述">全面屏手机 400Ah大电量</p><p class="产品价格">949元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_15123939053142_dFlAw.jpg" alt=""></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_14972549116226_tZpod.png" alt=""><h5>小米Note3 4GB+64GB</h5><p class="产品描述">1600万美颜自拍，两倍变焦双摄</p><p class="产品价格">1799元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg" alt=""><h5>红米5 2GB+16GB</h5><p class="产品描述">5.7英寸全面屏 前置柔光自拍</p><p class="产品价格">749元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_15265254948451_tVxWo.jpg" alt=""><h5>小米Max2 4GB+64GB</h5><p class="产品描述">6.4英寸大屏 5700Ah超大电池</p><p class="产品价格">1499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_15265254948451_tVxWo.jpg" alt=""><h5>小米Max2 4GB+64GB</h5><p class="产品描述">6.4英寸大屏 5700Ah超大电池</p><p class="产品价格">1499元</p></a></div>
+
+    </div>
+  </div>
+  <img src="https://i1.mifile.cn/a4/xmad_15204795762271_ZwaxE.jpg" alt="">
+  <div class="智能">
+  <p class="产品名">智能</p>
+    <div class="产品内容">
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_15232433421155_vCzhJ.jpg" alt=""></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a4/cf6660a3-d424-4248-889f-0eed1e99a342" alt=""><h5>小米5X 4GB+64GB</h5><p class="产品描述">光学变焦双摄 拍人更美</p><p class="产品价格">1299元 1499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1515636932.4212763!220x220.jpg" alt=""><h5>小米MIX2 全陶瓷尊享版</h5><p class="产品描述">全面屏2.0 Unibody 全陶瓷</p><p class="产品价格">3499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/T1sWd_B7VT1RXrhCrK!220x220.jpg" alt=""><h5>红米5A 2GB内存</h5><p class="产品描述">8天超长待机 137g轻巧机身</p><p class="产品价格">569元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1490770630.65576964!220x220.png" alt=""><h5>红米5plus 3GB+32GB</h5><p class="产品描述">全面屏手机 400Ah大电量</p><p class="产品价格">949元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_14950995035103_fhWtH.jpg" alt=""></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1506733860.3164711!220x220.jpg" alt=""><h5>小米Note3 4GB+64GB</h5><p class="产品描述">1600万美颜自拍，两倍变焦双摄</p><p class="产品价格">1799元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1488338229.6467773!220x220.jpg" alt=""><h5>红米5 2GB+16GB</h5><p class="产品描述">5.7英寸全面屏 前置柔光自拍</p><p class="产品价格">749元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1498564154.53184175!220x220.jpg" alt=""><h5>小米Max2 4GB+64GB</h5><p class="产品描述">6.4英寸大屏 5700Ah超大电池</p><p class="产品价格">1499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1498564154.53184175!220x220.jpg" alt=""><h5>小米Max2 4GB+64GB</h5><p class="产品描述">6.4英寸大屏 5700Ah超大电池</p><p class="产品价格">1499元</p></a></div>
+    </div></div>
+  <img src="https://i1.mifile.cn/a4/xmad_15271714459346_TkFqR.jpg" alt="">
+  <div class="搭配">
+  <p class="产品名">搭配</p>
+    <div class="产品内容">
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_15232428438404_xqTdS.jpg" alt=""></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1522666970.27937468.jpg" alt=""><h5>小米5X 4GB+64GB</h5><p class="产品描述">光学变焦双摄 拍人更美</p><p class="产品价格">1299元 1499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1524571235.37826274.jpg" alt=""><h5>小米MIX2 全陶瓷尊享版</h5><p class="产品描述">全面屏2.0 Unibody 全陶瓷</p><p class="产品价格">3499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1481269289.59498154.jpg" alt=""><h5>红米5A 2GB内存</h5><p class="产品描述">8天超长待机 137g轻巧机身</p><p class="产品价格">569元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1513857241.9291821.jpg?width=150&height=150" alt=""><h5>红米5plus 3GB+32GB</h5><p class="产品描述">全面屏手机 400Ah大电量</p><p class="产品价格">949元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_15227686002753_CSADt.jpg" alt=""></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1507877361.06147174.jpg?width=150&height=150" alt=""><h5>小米Note3 4GB+64GB</h5><p class="产品描述">1600万美颜自拍，两倍变焦双摄</p><p class="产品价格">1799元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1516600938.82135130.jpg?width=150&height=150" alt=""><h5>红米5 2GB+16GB</h5><p class="产品描述">5.7英寸全面屏 前置柔光自拍</p><p class="产品价格">749元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1476674302.67179007.jpg?width=150&height=150" alt=""><h5>小米Max2 4GB+64GB</h5><p class="产品描述">6.4英寸大屏 5700Ah超大电池</p><p class="产品价格">1499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1476674302.67179007.jpg?width=150&height=150" alt=""><h5>小米Max2 4GB+64GB</h5><p class="产品描述">6.4英寸大屏 5700Ah超大电池</p><p class="产品价格">1499元</p></a></div>
+    </div></div>
+  <img src="https://i1.mifile.cn/a4/xmad_15204798088946_YvzWs.jpg" alt="">
+  <div class="配件">
+  <p class="产品名">配件</p>
+    <div class="产品内容">
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_15222058002076_sWEmR.jpg" alt=""></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1524467046.18799928.jpg?width=150&height=150" alt=""><h5>小米5X 4GB+64GB</h5><p class="产品描述">光学变焦双摄 拍人更美</p><p class="产品价格">1299元 1499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1509852701.75968362.jpg?width=150&height=150" alt=""><h5>小米MIX2 全陶瓷尊享版</h5><p class="产品描述">全面屏2.0 Unibody 全陶瓷</p><p class="产品价格">3499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1523354403.31383469.png?width=150&height=150" alt=""><h5>红米5A 2GB内存</h5><p class="产品描述">8天超长待机 137g轻巧机身</p><p class="产品价格">569元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1524466931.58435208.jpg?width=150&height=150" alt=""><h5>红米5plus 3GB+32GB</h5><p class="产品描述">全面屏手机 400Ah大电量</p><p class="产品价格">949元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_15183545041251_FTsjL.jpg" alt=""></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1522140924.30981214.jpg?width=150&height=150" alt=""><h5>小米Note3 4GB+64GB</h5><p class="产品描述">1600万美颜自拍，两倍变焦双摄</p><p class="产品价格">1799元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1522142136.45425672.jpg?width=150&height=150" alt=""><h5>红米5 2GB+16GB</h5><p class="产品描述">5.7英寸全面屏 前置柔光自拍</p><p class="产品价格">749元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1519441993.33022674.jpg?width=150&height=150" alt=""><h5>小米Max2 4GB+64GB</h5><p class="产品描述">6.4英寸大屏 5700Ah超大电池</p><p class="产品价格">1499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1519441993.33022674.jpg?width=150&height=150" alt=""><h5>小米Max2 4GB+64GB</h5><p class="产品描述">6.4英寸大屏 5700Ah超大电池</p><p class="产品价格">1499元</p></a></div>
+    </div></div>
+  <img src="https://i1.mifile.cn/a4/xmad_15204800720086_TdBPv.jpg" alt="">
+  <div class="周边">
+  <p class="产品名">周边</p>
+    <div class="产品内容">
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_15203421336979_UHJuy.jpg" alt=""></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1504778935.57065093!220x220.jpg" alt=""><h5>小米5X 4GB+64GB</h5><p class="产品描述">光学变焦双摄 拍人更美</p><p class="产品价格">1299元 1499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1522309592.89679012!220x220.jpg" alt=""><h5>小米MIX2 全陶瓷尊享版</h5><p class="产品描述">全面屏2.0 Unibody 全陶瓷</p><p class="产品价格">3499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1522636275.74216007!220x220.jpg" alt=""><h5>红米5A 2GB内存</h5><p class="产品描述">8天超长待机 137g轻巧机身</p><p class="产品价格">569元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1521026661.04345181!220x220.jpg" alt=""><h5>红米5plus 3GB+32GB</h5><p class="产品描述">全面屏手机 400Ah大电量</p><p class="产品价格">949元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_15162458631619_LTmcI.jpg" alt=""></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1508311018.31143247!220x220.jpg" alt=""><h5>小米Note3 4GB+64GB</h5><p class="产品描述">1600万美颜自拍，两倍变焦双摄</p><p class="产品价格">1799元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1522311796.15496400!220x220.jpg" alt=""><h5>红米5 2GB+16GB</h5><p class="产品描述">5.7英寸全面屏 前置柔光自拍</p><p class="产品价格">749元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1502258923.87257653!220x220.jpg" alt=""><h5>小米Max2 4GB+64GB</h5><p class="产品描述">6.4英寸大屏 5700Ah超大电池</p><p class="产品价格">1499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1502258923.87257653!220x220.jpg" alt=""><h5>小米Max2 4GB+64GB</h5><p class="产品描述">6.4英寸大屏 5700Ah超大电池</p><p class="产品价格">1499元</p></a></div>
+    </div></div>
+  <div class="为您推荐">
+  <p class="产品名">为您推荐</p>
+    <div class="产品内容">
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1520477466.23587823!140x140.jpg" alt="" style="width=150px;height=150px;" ></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1521165496.26763454!140x140.jpg" alt=""><h5>小米5X 4GB+64GB</h5><p class="产品描述">光学变焦双摄 拍人更美</p><p class="产品价格">1299元 1499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1519609633.75918897!140x140.jpg" alt=""><h5>小米MIX2 全陶瓷尊享版</h5><p class="产品描述">全面屏2.0 Unibody 全陶瓷</p><p class="产品价格">3499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1522034059.32188382!140x140.jpg" alt=""><h5>红米5A 2GB内存</h5><p class="产品描述">8天超长待机 137g轻巧机身</p><p class="产品价格">569元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a1/pms_1510019402.48089978!140x140.jpg" alt=""><h5>红米5plus 3GB+32GB</h5><p class="产品描述">全面屏手机 400Ah大电量</p><p class="产品价格">949元</p></a></div>
+    </div></div>
+  <div class="热评产品">
+  <p class="产品名">热评产品</p>
+    <div class="产品内容">
+      <div><a href=""><img src="https://i1.mifile.cn/a4/aa6b038a-2946-4549-acff-17c58e701556" alt=""></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a4/032d0ff1-f77f-4830-a469-f3564d55e0c5" alt=""><h5>小米5X 4GB+64GB</h5><p class="产品描述">光学变焦双摄 拍人更美</p><p class="产品价格">1299元 1499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a4/05972209-0c29-4f2f-9844-09de1093ab02" alt=""><h5>小米MIX2 全陶瓷尊享版</h5><p class="产品描述">全面屏2.0 Unibody 全陶瓷</p><p class="产品价格">3499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_15094337975564_BSRIq.jpg" alt=""><h5>红米5A 2GB内存</h5><p class="产品描述">8天超长待机 137g轻巧机身</p><p class="产品价格">569元</p></a></div>
+    </div></div>
+  <div class="内容">
+  <p class="产品名">内容</p>
+    <div class="产品内容">
+      <div><a href=""><img src="https://i1.mifile.cn/a4/5e5da924-84e3-4959-9e25-5891cdf30757" alt=""></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_15264690655237_qpnxN.png" alt=""><h5>小米5X 4GB+64GB</h5><p class="产品描述">光学变焦双摄 拍人更美</p><p class="产品价格">1299元 1499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_15175523589542_niohb.png" alt=""><h5>小米MIX2 全陶瓷尊享版</h5><p class="产品描述">全面屏2.0 Unibody 全陶瓷</p><p class="产品价格">3499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a4/3332da7d-4056-4694-9548-c83b7b3af7d3" alt=""><h5>红米5A 2GB内存</h5><p class="产品描述">8天超长待机 137g轻巧机身</p><p class="产品价格">569元</p></a></div>
+    </div></div>
+  <div class="视频">
+  <p class="产品名">视频</p>
+    <div class="产品内容">
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_15269829174954_EwXae.jpg" alt=""></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_15269829055026_yqlnE.jpg" alt=""><h5>小米5X 4GB+64GB</h5><p class="产品描述">光学变焦双摄 拍人更美</p><p class="产品价格">1299元 1499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_15269840462222_kRKsw.jpg" alt=""><h5>小米MIX2 全陶瓷尊享版</h5><p class="产品描述">全面屏2.0 Unibody 全陶瓷</p><p class="产品价格">3499元</p></a></div>
+      <div><a href=""><img src="https://i1.mifile.cn/a4/xmad_15269843866667_bkMDi.jpg" alt=""><h5>红米5A 2GB内存</h5><p class="产品描述">8天超长待机 137g轻巧机身</p><p class="产品价格">569元</p></a></div>
+    </div></div>
+  
+ </section>
+</div>
+           
+   <!以上产品页部分>   
+           
+ <div class="背景色4">
+   <div class="页脚主体">
+     <ul class="售后服务">
+      <li>预约维修服务</li>|
+      <li>7天无理由退货</li>|
+      <li>15天免费换货</li>|
+      <li>满150元包邮</li>|
+      <li>520余家售后网点</li>
+     </ul>
+     <table>
+         <thead>
+           <th>帮助中心</th>
+           <th>服务支持</th>
+           <th>线下门店</th>
+           <th>关于小米</th>
+           <th>关注我们</th>
+           <th>特色服务</th>
+         </thead>
+         <tr>
+           <td>账户管理</td>
+           <td>售后政策</td>
+           <td>小米之家</td>
+           <td>了解小米</td>
+           <td>新浪微博</td>
+           <td>F码</td>
+         </tr>
+         <tr>
+           <td>购物指南</td>
+           <td>自助服务</td>
+           <td>服务网点</td>
+           <td>加入小米</td>
+           <td>官方微博</td>
+           <td>礼物吗</td>
+         </tr>
+         <tr>
+           <td>小米8？</td>
+           <td>小米8？</td>
+           <td>小米8？</td>
+           <td>小米8？</td>
+           <td>小米8？</td>
+           <td>小米8？</td>
+         </tr>
+     </table>
+      <div class="联系我">   
+     <p class="热线">400-100-5678</p>
+     <p class="描述">周一至周日 8:00-18:00</p>
+     <p class="话费">仅收市话费</p>
+      <span>联系客服</span>
+      </div>  
+     </div>
+     <footer>
+     <div class="页脚">
+       <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAb1BMVEX/ZwD/////bBH/agn/WgD/YwD/j17/18f/6N7/7uf/XQD/0cD/hEn/n3f/YQD/bhb/q4z/dSr/VQD/ejf/xrD/gUT/m3H/9O//+vf/oXv/uZ7/i1j/08P/ezv/dzH/3c//lGX/tJf/iFH/v6b/sZOm1feNAAAC60lEQVR4nO3d7U7qQBRG4RnsWJ1iUVpQ9BxB8P6v8YD+OKEzGGpoyruzVsK/EvbDRxuaTOv8oXYzc9aabdovm9s/qhjD2PMMUIh1+S38mI89y2DNdwdhZRe4J5Z7YRx7ikEL3rW2hbFyG4s7mf+FpbN3mDiuGXuAwZuMPcDgIdQPoX4I9UOoH0L9EOqHUD+E+iHUD6F+CPVDqB9C/RDqh1A/hPoh1A+hfgj1Q6gfQv0Q6odQP4T6IdQPoX4I9UOoH0L9EKaFC/XrVxtaGG8v0dviqSjOWF8dt+lTe64I7SuMpb9Uz+vX7fxnZHzNPK/qR+wrLO4vJjz0spv8NG/2/bwrlIT72lAbF3q/Orlc3orQl6d+jWaE/nmW/6baEXrfZImWhHmiKaGfZH6LtoT3mcFtCX2bTm5M6BfJ99Sa8C458lsT+rfuh2hOWHZnNyf05j9Dv+oc9q9H+PZ0XovN54//oLt/bq9GWBVnn52pY7F6PinsHvWvR9jrvEI9z52b+O5qP8OeJ4eK21PCp+N9jazQxc0J4daK0BW7vHB5vDMVFrriJSt8sCOsH60LXW1eWKytC+tP68KQPSaaEjbmhTNlYYiTm6Tuu6AsDH9zw3ffBmXhiaN5ZzCECBEiRIgQIUKECBEiRIgQIUKECBEiRIgQIUKECBEiRIgQIUKECBEiRIgQIUKEZoV/LiZcjS+MVeY1H4/nCtPc8OvuyrvcuqDmeGVX/ZHZph32GkMuLqbdmu5L1rNkm+k0matOt0muHBGbZJvFwNeJOu/qW+dd2+t32wx+rS+5EOqHUD+E+iHUD6F+CPVDqB9C/RDqh1A/hPoh1A+hfgj1Q6gfQv0Q6odQP4T6IdQPoX4I9UOoH0L9EOqHUD+E+iHUD6F+CPWbuNnYIwxbaNym73I3rcKD67kkU61YOZ+/Nb2Rwo13vkxupWyo+Xov9DuzxDBv/UHoyxAt7m5CdIcb9LmvFeDV8j29y5Z478vvlfX/AOjtWWIo/hSQAAAAAElFTkSuQmCC" alt="">
+       <ul>
+         <li>小米商城|</li>
+         <li>MIUI|</li>
+         <li>米家|</li>
+         <li>米聊|</li>
+         <li>多看|</li>
+         <li>游戏|</li>
+         <li>路由器|</li>
+         <li>米粉卡|</li>
+         <li>政企服务|</li>
+         <li>小米天猫店|</li>
+         <li>隐私政策|</li>
+         <li>问题反馈</li>
+         <li>Select Region</li>
+       </ul>
+       <span>©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号 
+违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试
+</span>
+       <span class="小米为发烧而生">小米! 为发烧而生!</span>
+ </div>
+ </footer>       
+ </div>          
+</body>
