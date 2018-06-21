@@ -1,0 +1,55 @@
+ <script type="text/javascript">
+ function answer1(a,b,c){
+  var a
+  var b
+  var c
+  var f=2*a
+  var x
+  var d='i'
+  var delta=b*b-4*a*c
+    if(delta>0){
+      var s_delta=Math.sqrt(delta)
+      var x1=(-b+s_delta)/f
+      var x2=(-b-s_delta)/f
+      console.log(x1)
+      console.log(x2)
+    }else if(delta===0){
+      x=-b/f
+      console.log(x)
+    }else{
+      var x1=(-b)/f +(Math.sqrt(-delta))/f+d
+      var x2=(-b)/f + -(Math.sqrt(-delta))/f+d
+      console.log(x1)
+      console.log(x2)
+    }
+ }
+
+answer1(1,8,4)
+answer1(4,8,4)
+answer1(100,20,5)
+
+function answer2(a,b,c,d,e,f){
+  var a
+  var b
+  var c
+  var d
+  var e
+  var f
+  var denomi=a*e-d*b
+
+  if(a/d!==b/e){
+    var x=(c*e-b*f)/denomi
+    var y=(a*f-d*c)/denomi
+    console.log(x)
+    console.log(y)
+  }else if(a/d==b/e&&a/d!==c/f&&b/e!==c/f){
+    console.log("该方程无解")
+  }else if(a/d==b/e&&b/e==c/f){
+    console.log("该方程有无数解")
+  }
+}
+
+answer2(3,3,9,2,1,3)
+answer2(3,3,10,1,1,3)
+answer2(3,3,9,1,1,3)
+</script>
