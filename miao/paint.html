@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>画图</title>
+  <style>
+    canvas {
+      border: 2px solid #f0f;
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="400" height="300"></canvas>
+</body>
+<script>
+  var cvs = document.querySelector('canvas')
+  var ctx = cvs.getContext('2d')
+
+  function dot(x, y, color = 'black') {
+    ctx.fillStyle = color
+    ctx.fillRect(x, y, 1, 1)
+  }
+</script>
+<script>
+  var xAxis=-1
+  var yAxis=10
+  for(i=0;i<400;i++){
+    xAxis=xAxis+1
+    console.log(dot(xAxis,yAxis,color = 'black'))
+  }
+</script>
+<script>
+  var xAxis=-2
+  var yAxis=20
+  for(i=0;i<400;i++){
+    xAxis=xAxis+2
+    console.log(dot(xAxis,yAxis,color = 'black'))
+  }
+</script>
+<script>
+  var xAxis=-3
+  var xAxis1=-2
+  var yAxis=30
+  for(i=0;i<400;i++){
+    xAxis=xAxis+3
+    xAxis1=xAxis1+3
+    console.log(dot(xAxis,yAxis,color = 'black'))
+    console.log(dot(xAxis1,yAxis,color = 'black'))
+  }
+</script>
+<script>
+  var xAxis=-4
+  var xAxis1=-3
+  var xAxis2=-2
+  var yAxis=40
+  for(i=0;i<400;i++){
+    xAxis=xAxis+4
+    xAxis1=xAxis1+4
+    xAxis2=xAxis1+4
+    console.log(dot(xAxis,yAxis,color = 'black'))
+    console.log(dot(xAxis1,yAxis,color = 'black'))
+    console.log(dot(xAxis2,yAxis,color = 'black'))
+  }
+</script>
+<script>
+  var xAxis=-1
+  var yAxis=-1
+  for(i=0;i<400;i++){
+    xAxis=xAxis+1
+    yAxis=yAxis+1
+    console.log(dot(xAxis,yAxis,color = 'black'))
+  }
+</script>
+
+<script>
+  var xAxis=-1
+  var yAxis=-1
+  for(i=0;i<400;i++){
+    xAxis=xAxis+1
+    yAxis=3*xAxis/4
+    console.log(dot(xAxis,yAxis,color = 'black'))
+  }
+</script>
+
+<script>
+  var xAxis=150
+  var yAxis=150
+  for(i=0;i<50;i++){
+    yAxis=yAxis+1
+    xAxis=150
+    for(j=0;j<50;j++){
+      xAxis=xAxis+1
+      console.log(dot(xAxis,yAxis,color = 'black'))
+    }
+  }
+</script>
+
+<script>
+  var xAxis=200
+  var yAxis=200
+  var rColor=255
+  var gColor=255
+  var bColor=0
+  var rgb
+  for(i=0;i<50;i++){
+    yAxis=yAxis+1
+    xAxis=200
+    bColor=bColor+5
+    gColor=255
+    for(j=0;j<50;j++){
+      xAxis=xAxis+1
+      gColor=gColor-5
+      rgb="rgb"+"("+rColor+","+gColor+","+bColor+")"
+      console.log(dot(xAxis,yAxis,color =rgb))
+    }
+  }
+</script>
+<script>
+  var xAxis=100
+  var yAxis=100
+  var r=50
+  var deg=0
+  for(deg=0;deg<360;deg++){
+    yAxis=100+r*Math.sin(deg)
+    xAxis=100+r*Math.cos(deg)
+    console.log(dot(xAxis,yAxis,color ="black"))
+  }
+</script>
+</html>
