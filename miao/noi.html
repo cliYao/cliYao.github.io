@@ -140,7 +140,7 @@ for(i=0;i<counter;i++){
   sum=sum+grade
 }
 average=sum/counter
-console.log(average)
+console.log(average.toFixed(2))
 </script>
 02:财务管理
 <script id="ch0105/02">
@@ -158,16 +158,16 @@ console.log("$" + average)
 03:均值
 <script  id="ch0105/03">
   debugger
-var sum=0
-var average=0
-var sample=0
-var sampleCounter=Number(prompt("Please input sampleCounter:"))
-for(i=1;i<sampleCounter+1;i++){
-  sample=parseFloat(prompt("Please input sample number"))
-  sum=sum+sample
-}
-average=sum/sampleCounter
-console.log(parseFloat(average.toFixed(4)))
+  var sum=0
+  var average=0
+  var sample=0
+  var sampleCounter=Number(prompt("Please input sampleCounter:"))
+  for(i=1;i<sampleCounter+1;i++){
+    sample=parseFloat(prompt("Please input sample number"))
+    sum=sum+sample
+  }
+  average=sum/sampleCounter
+  console.log(average.toFixed(4))
 </script>
 04:求整数的和与均值
 <script id="ch0105/04">
@@ -179,66 +179,40 @@ for(i=1;i<=counter;i++){
   var theNumber=Number(prompt("input theNumber:"))
   sum=sum+theNumber
 }
+console.log(sum)
 average=sum/counter
 console.log(average.toFixed(5))
 </script>
 05:最高的分数
 <script id="ch0105/05">
   debugger
-  var a
-  var b
-  var grade
-  var N=-3
-  var maxGrade=0
+  var maxNum=0
   var n=Number(prompt("Please input n:"))
-  var theChar=prompt("Please input theChar")
-  for(i=0;i<(2*n+(n-1))/2;i++){
-    var N=N+3
-    a=theChar.charAt(N)
-    b=theChar.charAt(N+1)
-    grade=Number(a+b)
-    if(maxGrade<=grade){
-      maxGrade=grade
+  for(i=0;i<n;i++){
+    var num=prompt("Please input num")
+    if(maxNum<=num){
+      maxNum=num
     }else{
-      maxGrade=maxGrade
+      maxNum=maxNum
     }
   }
-  console.log(maxGrade)
+  console.log(maxNum)
 </script>
 06:整数序列的元素最大跨度值
 <script id="ch0105/06">
   debugger
-  var a=""
-  var sNum=""
-  var num
-  var N=0
-  var maxNum=0
-  var minNum=1000
-  var dValue
   var n=Number(prompt("Please input n:"))
-  var theChar=prompt("Please input theChar")
-  for(i=0;i<(theChar.length);i++){
-    a=theChar.charAt(N)
-    sNum=""
-    while(a!==" "&&a!==""){
-      var N=N+1
-      sNum=sNum+a
-      a=theChar.charAt(N)
-    }
-    while((a===" "||a==="")&&sNum!==""){
-      num=Number(sNum)
-      if(maxNum<num){
+  for(i=0;i<n;i++){
+    var num=prompt("Please input num")
+    if(maxNum<num){
         maxNum=num
-      }else{
+    }else{
         maxNum=maxNum
-      }
-      if(minNum>num){
+    }
+    if(minNum>num){
         minNum=num
-      }else{
+    }else{
         minNum=minNum
-      }
-      N=N+1
-      break
     }
   }
   dValue=maxNum-minNum
@@ -251,25 +225,9 @@ console.log(average.toFixed(5))
   var smedal=0
   var cmedal=0
   var sum=0
-  var a=0
-  var b=0
-  var c=0
-  var s_kmedal=""
-  var s_smedal=""
-  var s_cmedal=""
-  var N=0
-  var theMedalChar=""
   var days=Number(prompt("input the days:"))
   for(i=0;i<days;i++){
     theMedalChar=prompt("input the medals:")
-    a=""
-    b=""
-    c=""
-    s_kmedal=""
-    s_smedal=""
-    s_cmedal=""
-    N=0
-    a=theMedalChar.charAt(N)
     while(a!==" "){
       s_kmedal=s_kmedal+a
       N++
