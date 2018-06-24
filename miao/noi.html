@@ -613,9 +613,9 @@ console.log(average.toFixed(5))
   debugger
   var n=prompt("n").charCodeAt()
   if(n%2===0){
-    console.log("even")
+    console.log("NO")
   }else{
-    console.log("odd")
+    console.log("YES")
   }
 </script>
 05:整数大小比较
@@ -711,9 +711,9 @@ console.log(average.toFixed(5))
   t1=t0+x/3
   t2=x/1.2
   if(t1-t2>0){
-    console.log("Bike")
-  }else if (t1-t2<0){
     console.log("Walk")
+  }else if (t1-t2<0){
+    console.log("Bike")
   }else{
     console.log("All")
   }
@@ -724,7 +724,7 @@ console.log(average.toFixed(5))
   var x=Number(prompt("x"))
   var y=0
   if(x>=0&&x<5){
-    y=x+2.5
+    y=-x+2.5
     console.log(y.toFixed(3))
   }else if (x>=5&&x<10){
     y=2-1.5*(x-3)*(x-3)
@@ -735,7 +735,7 @@ console.log(average.toFixed(5))
   }
 </script>
 14:计算邮资
-<script id="ch0104/13">
+<script id="ch0104/14">
    debugger
   var x=prompt("x")
   var y=prompt("是否加急：y加急，n不加急")
@@ -795,11 +795,11 @@ console.log(average.toFixed(5))
    debugger
     var a=Number(prompt("a"))
     if(a%4===0&&a%100!==0){
-      console.log("YES")
+      console.log("Y")
     }else if(a%400===0){
-      console.log("YES")
+      console.log("Y")
     }else{
-      console.log("NO")
+      console.log("N")
     }
 </script>
 18:点和正方形的关系
@@ -808,9 +808,9 @@ console.log(average.toFixed(5))
   var x=Number(prompt("x"))
   var y=Number(prompt("y"))
   if((x>=-1&&x<=1)&&(y>=-1&&y<=1)){
-    console.log("YES")
+    console.log("yes")
   }else{
-    console.log("NO")
+    console.log("no")
   }
 </script>
 19:简单计算器
@@ -838,33 +838,28 @@ console.log(average.toFixed(5))
 </script>
 20:求一元二次方程的根
 <script id="ch0104/20">
- function answer1(a,b,c){
-  var a
-  var b
-  var c
+  var a=Number(prompt("a"))
+  var b=Number(prompt("b"))
+  var c=Number(prompt("c"))
   var f=2*a
   var x
   var d='i'
   var delta=b*b-4*a*c
     if(delta>0){
       var s_delta=Math.sqrt(delta)
-      var x1=(-b+s_delta)/f
-      var x2=(-b-s_delta)/f
+      var x1=((-b+s_delta)/f).toFixed(5)
+      var x2=((-b-s_delta)/f).toFixed(5)
       console.log(x1)
       console.log(x2)
     }else if(delta===0){
-      x=-b/f
+      x=(-b/f).toFixed(5)
       console.log(x)
     }else{
-      var x1=(-b)/f +"+"+(Math.sqrt(-delta))/f+d
-      var x2=(-b)/f + "-" +(Math.sqrt(-delta))/f+d
+      var x1=((-b)/f).toFixed(5)+"+"+((Math.sqrt(-delta))/f).toFixed(5)+d
+      var x2=((-b)/f).toFixed(5)+ "-" +((Math.sqrt(-delta))/f).toFixed(5)+d
       console.log(x1)
       console.log(x2)
     }
- }
-answer1(1,8,4)
-answer1(4,8,4)
-answer1(100,20,5)
 </script>
 1.3
 01:A+B问题
@@ -919,7 +914,7 @@ answer1(100,20,5)
    var c
    c=((b/a)*100).toFixed(3)
    console.log(c+"%")
-   
+
 </script>
 07:计算多项式的值
 <script id="ch0103/07">
@@ -937,11 +932,10 @@ answer1(100,20,5)
 08:温度表达转化
 <script id="ch0103/08">
    debugger
-   var c=Number(prompt("c"))
-   var f
-   f=(5*(f-32)/9).toFixed(5)
-
-   console.log(f)
+   var f=Number(prompt("f"))
+   var C
+   C=(5*(f-32)/9).toFixed(5)
+   console.log(C)
 </script>
 09:与圆相关的计算
 <script id="ch0103/09">
@@ -964,7 +958,7 @@ answer1(100,20,5)
    var r2=Number(prompt("r2"))
    var R
    R=(1/(1/r1+1/r2)).toFixed(2)
-   console.log(c)
+   console.log(R)
 </script>
 11:计算浮点数相除的余数
 <script id="ch0103/11">
