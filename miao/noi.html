@@ -573,13 +573,519 @@ console.log(average.toFixed(5))
   console.log(H)
   console.log(am)
 </script>
+1.4
+01:判断数正负
+<script id="ch0104/01">
+  debugger
+  var N=Number(prompt("N"))
+  if(N>0){
+    console.log("positive")
+  }
+  if(N===0){
+    console.log("zero")
+  }
+  if(N<0){
+    console.log("negative")
+  }
+</script>
+02:输出绝对值
+<script id="ch0104/02">
+  debugger
+  var n=Number(prompt("n"))
+  if(n>=0){
+    console.log(n)
+  }else{
+    console.log(-n)
+  }
+</script>
+03:奇偶数判断
+<script id="ch0104/03">
+  debugger
+  var n=Number(prompt("n"))
+  if(n%2===0){
+    console.log("even")
+  }else{
+    console.log("odd")
+  }
+</script>
+04:奇偶ASCII值判断
+<script id="ch0104/04">
+  debugger
+  var n=prompt("n").charCodeAt()
+  if(n%2===0){
+    console.log("even")
+  }else{
+    console.log("odd")
+  }
+</script>
+05:整数大小比较
+<script id="ch0104/05">
+  debugger
+  var x=Number(prompt("x"))
+  var y=Number(prompt("y"))
+  if(x-y>0){
+    console.log(">")
+  }else if (x-y<0){
+    console.log("<")
+  }else{
+    console.log("=")
+  }
+</script>
+06:判断是否为两位数
+<script id="ch0104/06">
+  debugger
+  var x=Number(prompt("x"))
+  if(x>=10&&x<=99){
+    console.log("1")
+  }else{
+    console.log("0")
+  }
+</script>
+07:收集瓶盖赢大奖
+<script id="ch0104/07">
+   debugger
+  var x=Number(prompt("x"))
+  var y=Number(prompt("y"))
+  if(x>=10||y>=20){
+    console.log("1")
+  }else{
+    console.log("0")
+  }
+</script>
+08:判断一个数能否同时被3和5整除
+<script id="ch0104/08">
+   debugger
+  var x=Number(prompt("x"))
+  if(x%15===0){
+    console.log("YES")
+  }else{
+    console.log("NO")
+  }
+</script>
+09:判断能否被3，5，7整除
+<script id="ch0104/09">
+   debugger
+  var x=Number(prompt("x"))
+  if(x%105===0){
+    console.log("3 5 7")
+  }else if(x%15===0&&x%105!==0){
+    console.log("3 5")
+  }else if(x%21===0&&x%105!==0){
+    console.log("3 7")
+  }else if(x%35===0&&x%105!==0){
+    console.log("5 7")
+  }else if(x%3===0&&x%105!==0&&x%15!==0&&x%21!==0){
+    console.log("3")
+  }else if(x%5===0&&x%105!==0&&x%15!==0&&x%35!==0){
+    console.log("5")
+  }else if (x%7===0&&x%105!==0&&x%21!==0&&x%35!==0) {
+    console.log("7")
+  }
+</script>
+10:有一门课不及格的学生
+<script id="ch0104/10">
+   debugger
+  var x=Number(prompt("x"))
+  var y=Number(prompt("y"))
+  if((x<60&&y>=60)||(x>=60&&y<60)){
+    console.log("1")
+  }else{
+    console.log("0")
+  }
+</script>
+11:晶晶赴约会
+<script id="ch0104/11">
+   debugger
+  var x=Number(prompt("x"))
+  if(x===1||x===3||x===5){
+    console.log("NO")
+  }else{
+    console.log("YES")
+  }
+</script>
+12:骑车与走路
+<script id="ch0104/12">
+   debugger
+  var x=Number(prompt("x"))
+  var t0=50
+  t1=t0+x/3
+  t2=x/1.2
+  if(t1-t2>0){
+    console.log("Bike")
+  }else if (t1-t2<0){
+    console.log("Walk")
+  }else{
+    console.log("All")
+  }
+</script>
+13:分段函数
+<script id="ch0104/13">
+   debugger
+  var x=Number(prompt("x"))
+  var y=0
+  if(x>=0&&x<5){
+    y=x+2.5
+    console.log(y.toFixed(3))
+  }else if (x>=5&&x<10){
+    y=2-1.5*(x-3)*(x-3)
+    console.log(y.toFixed(3))
+  }else if (x>=10&&x<20){
+    y=x/2-1.5
+    console.log(y.toFixed(3))
+  }
+</script>
+14:计算邮资
+<script id="ch0104/13">
+   debugger
+  var x=prompt("x")
+  var y=prompt("是否加急：y加急，n不加急")
+  var base=8
+  var delta=4
+  var sum=0
+  if(x<=1000&&y=="y"){
+    sum=base+5
+    console.log(sum)
+  }else if (x>1000&&y=="y"){
+    sum=base+Math.ceil((x-1000)/500)*4+5
+    console.log(sum)
+  }
+  if(x<=1000&&y=="n"){
+    sum=base
+    console.log(sum)
+  }else if (x>1000&&y=="n"){
+    sum=base+Math.ceil((x-1000)/500)*4
+    console.log(sum)
+  }
+</script>
+15:最大数输出
+<script id="ch0104/15">
+   debugger
+    var n=Number(prompt("N"))
+    var maxNumber=-10000
+    for(i=0;i<n;i++){
+      var a=Number(prompt("input"+i+"Number"))
+      while(maxNumber<a){
+        maxNumber=a
+        break
+      }
+      while(maxNumber>=a){
+        maxNumber=maxNumber
+        break
+      }
+    }
+    console.log(maxNumber)
+</script>
+16:三角形判断
+<script id="ch0104/16">
+   debugger
+    var a=Number(prompt("a"))
+    var b=Number(prompt("b"))
+    var c=Number(prompt("c"))
+    var d=a+b
+    var e=a+c
+    var f=b+c
+    if(d-c>0&&e-b>0&&f-a>0){
+      console.log("YES")
+    }else{
+      console.log("NO")
+    }
+</script>
+17:判断闰年
+<script id="ch0104/17">
+   debugger
+    var a=Number(prompt("a"))
+    if(a%4===0&&a%100!==0){
+      console.log("YES")
+    }else if(a%400===0){
+      console.log("YES")
+    }else{
+      console.log("NO")
+    }
+</script>
+18:点和正方形的关系
+<script id="ch0104/18">
+   debugger
+  var x=Number(prompt("x"))
+  var y=Number(prompt("y"))
+  if((x>=-1&&x<=1)&&(y>=-1&&y<=1)){
+    console.log("YES")
+  }else{
+    console.log("NO")
+  }
+</script>
+19:简单计算器
+<script id="ch0104/19">
+   debugger
+  var x=Number(prompt("x"))
+  var y=Number(prompt("y"))
+  var operator=prompt("operator")
+  var sum=0
+  if(operator==="+"){
+    sum=x+y
+    console.log(sum)
+  }else if (operator==="-") {
+    sum=x-y
+    console.log(sum)
+  }else if (operator==="*") {
+    sum=x*y
+    console.log(sum)
+  }else if (operator==="/") {
+    sum=x/y
+    console.log(sum)
+  }else{
+    console.log("Invalid operator!")
+  }
+</script>
+20:求一元二次方程的根
+<script id="ch0104/20">
+ function answer1(a,b,c){
+  var a
+  var b
+  var c
+  var f=2*a
+  var x
+  var d='i'
+  var delta=b*b-4*a*c
+    if(delta>0){
+      var s_delta=Math.sqrt(delta)
+      var x1=(-b+s_delta)/f
+      var x2=(-b-s_delta)/f
+      console.log(x1)
+      console.log(x2)
+    }else if(delta===0){
+      x=-b/f
+      console.log(x)
+    }else{
+      var x1=(-b)/f +"+"+(Math.sqrt(-delta))/f+d
+      var x2=(-b)/f + "-" +(Math.sqrt(-delta))/f+d
+      console.log(x1)
+      console.log(x2)
+    }
+ }
+answer1(1,8,4)
+answer1(4,8,4)
+answer1(100,20,5)
+</script>
+1.3
+01:A+B问题
+<script id="ch0103/01">
+   debugger
+   var a=Number(prompt("a"))
+   var b=Number(prompt("b"))
+   console.log(a+b)
+</script>
+02:计算(a+b)*c的值
+<script id="ch0103/02">
+   debugger
+   var a=Number(prompt("a"))
+   var b=Number(prompt("b"))
+   var c=Number(prompt("c"))
+   console.log((a+b)*c)
+</script>
+03:计算(a+b)/c的值
+<script id="ch0103/03">
+   debugger
+   var a=Number(prompt("a"))
+   var b=Number(prompt("b"))
+   var c=Number(prompt("c"))
+   console.log((a+b)/c)
+</script>
+04:带余除法
+<script id="ch0103/04">
+   debugger
+   var a=Number(prompt("a"))
+   var b=Number(prompt("b"))
+   var c
+   var d
+   c=a%b
+   d=(a-c)/b
+   console.log(d)
+   console.log(c)
+</script>
+05:计算分数的浮点数值
+<script id="ch0103/05">
+   debugger
+   var a=Number(prompt("a"))
+   var b=Number(prompt("b"))
+   var c
+   c=(a/b).toFixed(9)
+   console.log(c)
+</script>
+06:甲流疫情死亡率
+<script id="ch0103/06">
+   debugger
+   var a=Number(prompt("a"))
+   var b=Number(prompt("b"))
+   var c
+   c=((a/b)*100).toFixed(3)
+   console.log(c+"%")
+</script>
+07:计算多项式的值
+<script id="ch0103/07">
+   debugger
+   var x=Number(prompt("x"))
+   var a=Number(prompt("a"))
+   var b=Number(prompt("b"))
+   var c=Number(prompt("c"))
+   var d=Number(prompt("d"))
+   var result
+   result=(a*x*x*x+b*x*x+c*x+d).toFixed(7)
+
+   console.log(result)
+</script>
+08:温度表达转化
+<script id="ch0103/08">
+   debugger
+   var c=Number(prompt("c"))
+   var f
+   f=(5*(f-32)/9).toFixed(5)
+
+   console.log(f)
+</script>
+09:与圆相关的计算
+<script id="ch0103/09">
+   debugger
+   var r=Number(prompt("r"))
+   var d=0
+   var z=0
+   var m=0
+   d=(2*r).toFixed(4)
+   z=(2*r*Math.PI).toFixed(4)
+   m=(r*r*Math.PI).toFixed(4)
+   console.log(d)
+   console.log(z)
+   console.log(m)
+</script>
+10:计算并联电阻的阻值
+<script id="ch0103/10">
+   debugger
+   var r1=Number(prompt("r1"))
+   var r2=Number(prompt("r2"))
+   var R
+   R=(1/(1/r1+1/r2)).toFixed(2)
+   console.log(c)
+</script>
+11:计算浮点数相除的余数
+<script id="ch0103/11">
+   debugger
+   var a=Number(prompt("a"))
+   var b=Number(prompt("b"))
+   var c
+   c=a%b
+   console.log(c.toFixed(4))
+</script>
+12:计算球的体积
+<script id="ch0103/12">
+   debugger
+   var r=Number(prompt("r"))
+   var pi=3.14
+   var c
+   c=4*pi*r*r*r/3
+   console.log(c.toFixed(2))
+</script>
+13:反向输出一个三位数
+<script id="ch0103/13">
+   debugger
+   var n=Number(prompt("n"))
+   var a
+   var b
+   var c
+   a=String(n%10)
+   b=String(parseInt(n/10)%10)
+   c=String(parseInt(n/100))
+   console.log(a+b+c)
+</script>
+14:大象喝水
+<script id="ch0103/14">
+   debugger
+   var h=Number(prompt("h"))
+   var r=Number(prompt("r"))
+   var s
+   s=parseInt(Math.PI*r*r*h)
+   var result=Math.ceil(20*1000/s)
+   console.log(result)
+</script>
+15:苹果和虫子
+<script id="ch0103/15">
+   debugger
+   var n=Number(prompt("n"))
+   var x=Number(prompt("x"))
+   var y=Number(prompt("y"))
+   var result
+   result=n-Math.ceil(y/x)
+   console.log(result)
+</script>
+16:计算线段长度
+<script id="ch0103/16">
+   debugger
+   var x1=Number(prompt("x1"))
+   var y1=Number(prompt("y1"))
+   var x2=Number(prompt("x2"))
+   var y2=Number(prompt("y2"))
+   var result
+   result=(Math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2))).toFixed(3)
+   console.log(result)
+</script>
+17:计算三角形面积
+<script id="ch0103/17">
+   debugger
+   var x1=Number(prompt("x1"))
+   var y1=Number(prompt("y1"))
+   var x2=Number(prompt("x2"))
+   var y2=Number(prompt("y2"))
+   var x3=Number(prompt("x2"))
+   var y3=Number(prompt("y2"))
+   var a
+   var b
+   var c
+   var p
+   a=Math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2))
+   b=Math.sqrt((x3-x2)*(x3-x2)+(y3-y2)*(y3-y2))
+   c=Math.sqrt((x1-x3)*(x1-x3)+(y1-y3)*(y1-y3))
+   p=(a+b+c)/2
+   var result=(Math.sqrt(p*(p-a)*(p-b)*(p-c))).toFixed(2)
+   console.log(result)
+</script>
+18:等差数列末项计算
+<script id="ch0103/18">
+   debugger
+   var a1=Number(prompt("a1"))
+   var a2=Number(prompt("a2"))
+   var n=Number(prompt("n"))
+   var d=a2-a1
+   var result
+   result=a1+(n-1)*d
+   console.log(result)
+</script>
+19:A*B问题
+<script id="ch0103/19">
+   debugger
+   var A=Number(prompt("A"))
+   var B=Number(prompt("B"))
+   var result
+   result=A*B
+   console.log(result)
+</script>
+20:计算2的幂
+  <script id="ch0103/20">
+   debugger
+   var n=Number(prompt("n"))
+   var result=1
+   for(i=0;i<n;i++){
+    result=result*2
+   }
+   console.log(result)
+</script>
 //js编程精解第2章习题1
+<script type="text/javascript">
 var theChar="#"
 var result=""
 for(i=0;i<7;i++){
   result=result+theChar
   console.log(result)
 }
+</script>
+<script>
 //js编程精解第2张习题2
 var theNumber=1
 var result=0
@@ -595,6 +1101,8 @@ for(i=0;i<100;i++){
     console.log(result)
   }
 }
+</script>
+<script>
 //js编程精解第2张习题3
 function classBoard(num){
 var theChar="#"
@@ -612,6 +1120,7 @@ console.log(result)
 }
 
 console.log(classBoard(20))
+</script>
 /*作业：实现评委打分,首先，询问用户有多少个评委
 然后输入每个评委的评分
 然后去掉一个最高分，去掉一个最低分，求剩余的平均分*/
@@ -660,4 +1169,5 @@ for(i=0;i<10000;i++){
   }
 }
 </script>
+
 </html>
