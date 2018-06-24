@@ -439,7 +439,7 @@ console.log(average.toFixed(5))
       depositMoney=N*(i+1)
       sum=Y*base
       if(depositMoney>=sum&&i<20){
-      console.log(i)
+      console.log(i+1)
       break
       }
       if(depositMoney>=sum&&i>=20){
@@ -807,14 +807,16 @@ console.log(average.toFixed(5))
       var s_delta=Math.sqrt(delta)
       var x1=((-b+s_delta)/f).toFixed(5)
       var x2=((-b-s_delta)/f).toFixed(5)
-      console.log(x1+";"+x2)
+      console.log(x1)
+      console.log(x2)
     }else if(delta===0){
       x=(-b/f).toFixed(5)
       console.log(x)
     }else{
       var x1=((-b)/f).toFixed(5)+"+"+((Math.sqrt(-delta))/f).toFixed(5)+d
       var x2=((-b)/f).toFixed(5)+ "-" +((Math.sqrt(-delta))/f).toFixed(5)+d
-      console.log(x1+";"+x2)
+      console.log(x1)
+      console.log(x2)
     }
 </script>
 1.3
