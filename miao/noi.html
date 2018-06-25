@@ -201,6 +201,8 @@ console.log(average.toFixed(5))
 06:整数序列的元素最大跨度值
 <script id="ch0105/06">
   debugger
+  var maxNum=0
+  var minNum=1000
   var n=Number(prompt("Please input n:"))
   for(i=0;i<n;i++){
     var num=prompt("Please input num")
@@ -224,59 +226,30 @@ console.log(average.toFixed(5))
   var kmedal=0
   var smedal=0
   var cmedal=0
+  var a=0
+  var b=0
+  var c=0
   var sum=0
   var days=Number(prompt("input the days:"))
   for(i=0;i<days;i++){
-    theMedalChar=prompt("input the medals:")
-    while(a!==" "){
-      s_kmedal=s_kmedal+a
-      N++
-      a=theMedalChar.charAt(N)
-    }
-    kmedal=kmedal+Number(s_kmedal)
-    b=theMedalChar.charAt(++N)
-    while(b!==" "){
-      s_smedal=s_smedal+b
-      N++
-      b=theMedalChar.charAt(N)
-    }
-    smedal=smedal+Number(s_smedal)
-    c=theMedalChar.charAt(++N)
-    while(c!==" "&&c!==""){
-      s_cmedal=s_cmedal+c
-      N++
-      c=theMedalChar.charAt(N)
-    }
-    cmedal=cmedal+Number(s_cmedal)
-
+    kmedal=Number(prompt("input the kmedal:"))
+    smedal=Number(prompt("input the smedal:"))
+    cmedal=Number(prompt("input the cmedal:"))
+    a=a+kmedal
+    b=b+smedal
+    c=c+cmedal
   }
-  sum=kmedal+smedal+cmedal
-  console.log(kmedal,smedal,cmedal,sum)
+  sum=a+b+c
+  console.log(a,b,c,sum)
 </script>
 08:多边形内角和
 <script id="ch0105/08">
   debugger
-  var a=""
-  var s_Sum=""
   var sum=0
-  var dValue=0
-  var N=0
-  var theChar=""
   var n=Number(prompt("input n:"))
-  var theChar=prompt("input theChar:")
-  for(i=0;i<theChar.length;i++){
-    a=theChar.charAt(N)
-    s_Sum=""
-    while(a!==" "&&a!==""){
-      s_Sum=s_Sum+a
-      N++
-      a=theChar.charAt(N)
-    }
-    sum=sum+Number(s_Sum)
-    while((a===" "||a==="")&&s_Sum!==""){
-      N++
-      break
-    }
+  for(i=0;i<n-1;i++){
+    var a=Number(prompt("a:"))
+    sum=sum+a
   }
   dValue=180*(n-2)-sum
   console.log(dValue)
@@ -807,16 +780,14 @@ console.log(average.toFixed(5))
       var s_delta=Math.sqrt(delta)
       var x1=((-b+s_delta)/f).toFixed(5)
       var x2=((-b-s_delta)/f).toFixed(5)
-      console.log(x1)
-      console.log(x2)
+      console.log(x1,x2)
     }else if(delta===0){
       x=(-b/f).toFixed(5)
       console.log(x)
     }else{
       var x1=((-b)/f).toFixed(5)+"+"+((Math.sqrt(-delta))/f).toFixed(5)+d
       var x2=((-b)/f).toFixed(5)+ "-" +((Math.sqrt(-delta))/f).toFixed(5)+d
-      console.log(x1)
-      console.log(x2)
+      console.log(x1,x2)
     }
 </script>
 1.3
