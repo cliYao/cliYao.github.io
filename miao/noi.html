@@ -366,24 +366,21 @@ console.log(average.toFixed(5))
 16:买房子
 <script id="ch0105/16">
   debugger
-    var N=Number(prompt("input N:"))
-    var K=Number(prompt("input K:"))/100 + 1
-    var sum=200
-    var depositMoney=0
-    var result="Impossible"
-    for(i=1;i<=21;i++){
-      sum=sum*K
-      depositMoney=N*i
-      if(depositMoney>=sum&&i<=20){
-      console.log(i)
-      break
-      }
-      if(depositMoney<sum&&i<=20){
-      continue
-      }
-      if(i===21){
-        console.log(result)
-      }
+    var n = Number(prompt('请输入年薪的值(值以万为单位，不需要输入单位)'))
+    var k = Number(prompt('请输入房价每年以百分之k增长中k的值'))
+    var price = 200
+    var y = 1
+    var sum = n
+    while ((sum < price) && (y < 20)) {
+        y++
+        price *= (1 + k / 100)
+        sum += n
+    }
+
+    if((sum >= price) && (y <=20)){
+      console.log(y)
+    }else{
+      console.log('Impossible')
     }
 </script>
 17:菲波那契数列
@@ -464,6 +461,26 @@ console.log(average.toFixed(5))
   console.log((H-an*h).toFixed(4))
   console.log((an*h).toFixed(7))
 </script>
+21:角谷猜想
+<script id="ch0105/21">
+     debugger
+    var N=Number(prompt("input N:"))
+    if(N%2===1&&N!==1){
+      var n=N
+      N=N*3+1
+      console.log(n+"*3+1="+N)
+    }
+    while(N%2===0&&N!==1){
+      var m=N
+      N=N/2
+      console.log(m+"/2="+N)
+    }
+    if(N===1){
+      console.log("End")
+    }
+</script>
+22:津津的储蓄计划
+
 1.4
 01:判断数正负
 <script id="ch0104/01">
