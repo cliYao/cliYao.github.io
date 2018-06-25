@@ -370,6 +370,7 @@ console.log(average.toFixed(5))
     var K=Number(prompt("input K:"))/100 + 1
     var sum=200
     var depositMoney=0
+    var result="Impossible"
     for(i=1;i<=21;i++){
       sum=sum*K
       depositMoney=N*i
@@ -381,7 +382,7 @@ console.log(average.toFixed(5))
       continue
       }
       if(i===21){
-        console.log("Impossible")
+        console.log(result)
       }
     }
 </script>
