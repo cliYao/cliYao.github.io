@@ -384,10 +384,10 @@ console.log(average.toFixed(5))
       break
       }
       if(depositMoney>=sum&&i>20){
-        console.log("impossible")
+        console.log("Impossible")
       }
       if(depositMoney<sum&&i>=20){
-        console.log("impossible")
+        console.log("Impossible")
       }
     }
 </script>
@@ -457,20 +457,17 @@ console.log(average.toFixed(5))
 20:球弹跳高度的计算
 <script id="ch0105/20">
   debugger
-  var h=Number(prompt("初始高度:"))
+ var h=Number(prompt("初始高度:"))
   var q=1/2
-  var a1=1
   var an=1
   var H=0
-  var h1=0
-  var n=Number(prompt("第n次落地:"))
-  for(i=0;i<n;i++){
+  var n=10
+  for(i=0;i<10;i++){
     var an=an*q
   }
-  var am=an/(1/2)
-  H=(h*(2+(am*q-a1)/(q-1))+h*((am*q-a1)/(q-1)-am))/2
-  console.log(H)
-  console.log(am)
+  H=(3/2)*h*((1-an)/(1-q))
+  console.log((H-an*h).toFixed(4))
+  console.log((an*h).toFixed(7))
 </script>
 1.4
 01:判断数正负
