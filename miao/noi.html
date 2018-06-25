@@ -480,6 +480,177 @@ console.log(average.toFixed(5))
     }
 </script>
 22:津津的储蓄计划
+<script id="ch0105/22">
+     debugger
+    var C=300
+    var sum=0
+    var result=0
+    for(i=0;i<12;i++){
+      budget=Number(prompt("当月预算:"))
+      var remain=C+sum-budget
+      if(remain>=100){
+        var n=Math.floor(remain/100)
+        var result=result+100*n
+        sum=remain-100*n
+      }else if(remain<100&&remain>=0){
+        sum=sum+remain
+      }else{
+        console.log(-i-1)
+        break
+      }
+    }
+    console.log(result)
+</script>
+23:药房管理
+<script id="ch0105/23">
+     debugger
+    var m= +prompt("m")
+    var n= +prompt("n")
+    var result=0
+    var counter=0
+    for(i=0;i<n;i++){
+      var num= +prompt("num")
+      if(num <= m){
+        m = m-num
+      }else{
+        m=m
+        counter++
+      }
+    }
+    console.log(counter)
+</script>
+24:正常血压
+<script id="ch0105/24">
+     debugger
+    var n= +prompt("收缩压和舒张压测量次数")
+    var counter=0
+    var max=0
+    for(i=0;i<n;i++){
+      var a= +prompt("收缩压") 
+      var b= +prompt("舒张压")
+      if((a>=90&&a<=140)&&(b>=60&&b<=90)){
+        counter++
+      }else{
+        if(max<=counter){
+          max=counter
+        }else if (max>counter) {
+          max=max
+        }
+        counter=0
+        continue
+      }
+    }
+    console.log(counter)
+</script>
+25:求特殊自然数
+<script id="ch0105/25">
+     debugger
+    var a
+    var b
+    var c
+    var s
+    var n
+    var t
+    for(a=0;a<10;a++){
+      for(b=0;b<10;b++){
+        for(c=0;c<10;c++){
+          s=Number(c*1+b*7+a*7*7)
+          n=Number(a*1+b*9+c*9*9)
+          if(s===n&&s>0){
+            t=c*1+b*7+a*7*7
+            console.log(t)
+            console.log(String(a)+String(b)+String(c))
+            console.log(String(c)+String(b)+String(a))
+          }
+        }
+      }
+    }
+</script>
+26:统计满足条件的4位数个数
+<script id="ch0105/26">
+     debugger
+    var a
+    var b
+    var c
+    var d
+    var counter=0
+    var n=+prompt("n")
+    for(i=0;i<n;i++){
+      num=+prompt("num")
+      d=num%10
+      c=Math.floor(num/10)%10
+      b=Math.floor(num/100)%10
+      a=Math.floor(num/1000)
+      if(d-a-b-c>0){
+        counter++
+      }
+    }
+    console.log(counter)
+</script>
+27:级数求和
+<script id="ch0105/27">
+     debugger
+    var n=10000
+    var sn=0
+    var K=+prompt("K")
+    for(i=1;i<n;i++){
+      sn=sn+1/i
+      if(sn>K){
+        console.log(i)
+        break
+      }
+    }
+</script>
+28:分离整数的各个数位
+<script id="ch0105/28">
+     debugger
+    var num=+prompt("num")
+    var s_num=String(num)
+    var s=""
+    for(i=s_num.length-1;i>-1;i--){
+      s=s+s_num.charAt(i)+" "
+    }
+    console.log(s)
+</script>
+29:数字反转
+<script id="ch0105/29">
+     debugger
+    var num=+prompt("num")
+    var s_num=String(num)
+    var s=""
+    if(num>=0){
+      for(i=s_num.length-1;i>-1;i--){
+      s=s+s_num.charAt(i)
+      }
+      console.log(Number(s))
+    }else{
+      for(i=s_num.length-1;i>0;i--){
+      s=s+s_num.charAt(i)
+      }
+      console.log(-Number(s))
+    }
+</script>
+30:含k个3的数
+<script id="ch0105/30">
+     debugger
+    var num=+prompt("num")
+    var k=+prompt("k")
+    var s_num=String(num)
+    var s=""
+    var counter=0
+    for(i=s_num.length-1;i>-1;i--){
+      s=s_num.charAt(i)
+      if(s==="3"){
+        counter++
+      }
+    }
+    if(num%19==0&&counter===k){
+      console.log("YES")
+    }else{
+      console.log("NO")
+    }
+</script>
+31:开关灯
 
 1.4
 01:判断数正负
