@@ -551,13 +551,13 @@ console.log(average.toFixed(5))
     var s
     var n
     var t
-    for(a=0;a<10;a++){
-      for(b=0;b<10;b++){
-        for(c=0;c<10;c++){
+    for(a=0;a<7;a++){
+      for(b=0;b<7;b++){
+        for(c=0;c<7;c++){
           s=Number(c*1+b*7+a*7*7)
           n=Number(a*1+b*9+c*9*9)
+          t=Number(c*1+b*7+a*7*7)
           if(s===n&&s>0){
-            t=c*1+b*7+a*7*7
             console.log(t)
             console.log(Number(String(a)+String(b)+String(c)))
             console.log(Number(String(c)+String(b)+String(a)))
