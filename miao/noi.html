@@ -559,8 +559,8 @@ console.log(average.toFixed(5))
           if(s===n&&s>0){
             t=c*1+b*7+a*7*7
             console.log(t)
-            console.log(String(a)+String(b)+String(c))
-            console.log(String(c)+String(b)+String(a))
+            console.log(Number(String(a)+String(b)+String(c)))
+            console.log(Number(String(c)+String(b)+String(a)))
           }
         }
       }
@@ -604,13 +604,15 @@ console.log(average.toFixed(5))
 28:分离整数的各个数位
 <script id="ch0105/28">
      debugger
-    var num=+prompt("num")
+     var num=+prompt("num")
     var s_num=String(num)
     var s=""
-    for(i=s_num.length-1;i>-1;i--){
+    var s1=""
+    for(i=s_num.length-1;i>0;i--){
       s=s+s_num.charAt(i)+" "
     }
-    console.log(s)
+    s1=s+s_num.charAt(0)
+    console.log(s1)
 </script>
 29:数字反转
 <script id="ch0105/29">
@@ -1251,6 +1253,45 @@ for(i=0;i<10000;i++){
     alert(dividend+" cant be divided by "+divisor)
   }
 }
+</script>
+<script id="sort" sample-input="4 1 7" sample-output="1 4 7" comment="输入三个数，把此三个数按升序输出">
+  
+</script>
+<script id="narcissistic " sample-input="153" sample-output="YES" comment="判断一个数是否为水仙花数">
+  
+</script>
+<script id="narcissistics" sample-input="" sample-output="" comment="找出100到10000以内所有的水仙花数">
+  
+</script>
+<script id="palindrom" sample-input="12321" sample-output="YES" comment="判断一个非负整数是否为回文数字">
+  
+</script>
+<script id="weekday" sample-input="2018 6" sample-output="5" comment="输入年份与月份，给出该年该月的第一天是星期几">
+  
+</script>
+<script id="complete-number" sample-input="6" sample-output="YES" comment="判断一个数是否为完全数">
+  
+</script>
+<script id="complete-numbers" sample-input="" sample-output="" comment="输出10000以内所有的完全数">
+  
+</script>
+<script id="prime" sample-input="7" sample-output="YES" comment="判断一个数是否为素数">
+  
+</script>
+<script id="primes" sample-input="" sample-output="" comment="输出100以内所有的素数">
+  
+</script>
+<script id="itob" sample-input="123" sample-output="123" comment="数字转换成字符串">
+  
+</script>
+<script id="lcf&lcm" sample-input="12 9" sample-output="36 3" comment="给定两个数，求它们的最小公倍数和最大公约数">
+  
+</script>
+<script id="7" sample-input="" sample-output="" comment="敲7">
+  
+</script>
+<script id="sqrt" sample-input="2" sample-output="1.414" comment="不使用Math.sqrt，求一个非负数的平方根，至少精确到小数点后3位">
+  
 </script>
 
 </html>
