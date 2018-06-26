@@ -1343,19 +1343,18 @@ for(i=0;i<10000;i++){
   }
 </script>
 <script id="complete-numbers" sample-input="" sample-output="" comment="输出10000以内所有的完全数">
-  for(k=1;k<=10000;k++){
+  for(k=1;k<10000;k++){
   var a=0
   var num=k
   for(i=1;i<num;i++){
     if(num%i===0){
       a=a+i
-    }else{
-      continue
     }
-    if(a===num){
+  }
+  if(a===num){
     console.log(a)
-  }
-  }
+  } 
+}
 </script>
 <script id="prime" sample-input="7" sample-output="YES" comment="判断一个数是否为素数">
   var num=+prompt("num")
@@ -1382,18 +1381,21 @@ for(i=0;i<10000;i++){
       counter++
     }
    }
-    if(counter>2){
-        
-    }else if(counter===2){
-        console.log(num)
-    }else{
-      
-      
-    }
+  if(counter===2){
+      console.log(num)
+  }
   }
 </script>
 <script id="itob" sample-input="123" sample-output="123" comment="数字转换成字符串">
-  
+  var num=+prompt("num")
+  var a=0
+  var s=""
+  while(num>0){
+    a=num%10
+    s=String.fromCharCode(a+48)+s
+    num=(num-a)/10
+  }
+  console.log(s)
 </script>
 <script id="lcf&lcm" sample-input="12 9" sample-output="36 3" comment="给定两个数，求它们的最小公倍数和最大公约数">
   var n=+prompt("n")
@@ -1441,7 +1443,7 @@ for(i=0;i<10000;i++){
     down=x
     } 
   }
-  console.log(x.toFixed(8))
+  console.log(x)
 </script>
 
 </html>
