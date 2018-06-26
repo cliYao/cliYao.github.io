@@ -1255,43 +1255,192 @@ for(i=0;i<10000;i++){
 }
 </script>
 <script id="sort" sample-input="4 1 7" sample-output="1 4 7" comment="输入三个数，把此三个数按升序输出">
-  
+  var a=+prompt("a")
+  var b=+prompt("b")
+  var c=+prompt("c")
+  var s=""+a+b+c
+  for(i=0;i<3;i++){
+    var temp
+    for(j=0;j<3;j++){
+      if(Number(s.charAt(j))>Number(s.charAt(j+1))){
+        temp=s.charAt(j)
+        s.charAt(j)=s.charAt(j+1)
+        s.charAt(j+1)=temp
+      }
+    }
+  }
+  console.log(s)
 </script>
 <script id="narcissistic " sample-input="153" sample-output="YES" comment="判断一个数是否为水仙花数">
-  
+  var num=+prompt("num")
+  var s_num=String(num)
+  var n=s_num.length
+  var mum=1
+  var sum=0
+  for(i=0;i<n;i++){
+    mum=1
+    for(j=0;j<n;j++){
+    mum=mum*Number(s_num.charAt(i))
+    }
+    sum=sum+mum
+  }
+  if (num===sum) {
+    console.log("YES")
+  }else{
+    console.log("NO")
+  }
 </script>
 <script id="narcissistics" sample-input="" sample-output="" comment="找出100到10000以内所有的水仙花数">
-  
+ for(k=100;k<=10000;k++){
+  var num=k
+  var s_num=String(k)
+  var n=s_num.length
+  var mum=1
+  var sum=0
+  for(i=0;i<n;i++){
+    mum=1
+    for(j=0;j<n;j++){
+    mum=mum*Number(s_num.charAt(i))
+    }
+    sum=sum+mum
+  }
+  if (k===sum) {
+    console.log(k)
+  }
+  }
 </script>
 <script id="palindrom" sample-input="12321" sample-output="YES" comment="判断一个非负整数是否为回文数字">
-  
+  var num=+prompt("num")
+  var s_num=String(num)
+  var n=s_num.length
+  var a=""
+  var b=""
+  for(i=0;i<n;i++){
+    a=a+s_num.charAt(i)
+    b=b+s_num.charAt(n-1-i)
+  }
+  if(a===b){
+      console.log("YES")
+  }else{
+    console.log("NO")
+  }
 </script>
 <script id="weekday" sample-input="2018 6" sample-output="5" comment="输入年份与月份，给出该年该月的第一天是星期几">
   
 </script>
 <script id="complete-number" sample-input="6" sample-output="YES" comment="判断一个数是否为完全数">
-  
+  var a=0
+  var num=+prompt("num")
+  for(i=1;i<num;i++){
+    if(num%i===0){
+      a=a+i
+    }else{
+      continue
+    }
+  if(a===num){
+      console.log("YES")
+  }
+  }
 </script>
 <script id="complete-numbers" sample-input="" sample-output="" comment="输出10000以内所有的完全数">
-  
+  for(k=1;k<=10000;k++){
+  var a=0
+  var num=k
+  for(i=1;i<num;i++){
+    if(num%i===0){
+      a=a+i
+    }else{
+      continue
+    }
+    if(a===num){
+    console.log(a)
+  }
+  }
 </script>
 <script id="prime" sample-input="7" sample-output="YES" comment="判断一个数是否为素数">
-  
+  var num=+prompt("num")
+  var counter=0
+  for(i=1;i<=num;i++){
+    if(num%i===0){
+      counter++
+    }
+   }
+    if(counter>2){
+        console.log("NO")
+    }else if(counter===2){
+        console.log("YES")
+    }else{
+      console.log("NO")
+    }
 </script>
 <script id="primes" sample-input="" sample-output="" comment="输出100以内所有的素数">
-  
+  for(j=0;j<100;j++){
+  var num=j
+  var counter=0
+  for(i=1;i<=num;i++){
+    if(num%i===0){
+      counter++
+    }
+   }
+    if(counter>2){
+        
+    }else if(counter===2){
+        console.log(num)
+    }else{
+      
+    }
+  }
 </script>
 <script id="itob" sample-input="123" sample-output="123" comment="数字转换成字符串">
   
 </script>
 <script id="lcf&lcm" sample-input="12 9" sample-output="36 3" comment="给定两个数，求它们的最小公倍数和最大公约数">
-  
+  var n=+prompt("n")
+  var m=+prompt("m")
+  var min=m>n?m:n
+  var max=m<n?m:n
+  while((min%n!==0)||(min%m!==0)){
+    min++
+  }
+  console.log(min)
+  while((n%max!==0)||(m%max!==0)){
+    max--
+  }
+  console.log(max)
 </script>
 <script id="7" sample-input="" sample-output="" comment="敲7">
-  
+  var a=0
+  var k=0
+  for(i=1;i<=100;i++){
+    k=i
+    if(k%7===0){
+      console.log(i)
+    }else{
+    while(k>0){
+      a=k%10
+      if(a===7){
+        console.log(i)
+        break
+      }
+      k=(k-a)/10
+    }
+    }
+  }
 </script>
 <script id="sqrt" sample-input="2" sample-output="1.414" comment="不使用Math.sqrt，求一个非负数的平方根，至少精确到小数点后3位">
-  
+  var n= +prompt("n")
+  var high=n
+  var down=0
+  var x=0
+  while(high-down>0.00000001){
+    x=(high+down)/2
+    if(x*x>n){
+    high=x
+    }else if(x*x<n){
+    down=x
+    } 
+  }
+  console.log(x.toFixed(8))
 </script>
 
 </html>
