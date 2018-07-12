@@ -1259,17 +1259,18 @@ for(i=0;i<10000;i++){
   var b=+prompt("b")
   var c=+prompt("c")
   var s=""+a+b+c
-  for(i=0;i<3;i++){
-    var temp
+  var s1=""
+  var temp
     for(j=0;j<3;j++){
       if(Number(s.charAt(j))>Number(s.charAt(j+1))){
         temp=s.charAt(j)
-        s.charAt(j)=s.charAt(j+1)
-        s.charAt(j+1)=temp
+        s1=s1+s.charAt(j+1)+temp
+      }else{
+        temp=s.charAt(j+1)
+        s1=s1+s.charAt(j+1)+temp
       }
     }
-  }
-  console.log(s)
+  console.log(s1)
 </script>
 <script id="narcissistic " sample-input="153" sample-output="YES" comment="判断一个数是否为水仙花数">
   var num=+prompt("num")
