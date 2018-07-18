@@ -17,8 +17,33 @@ var cliyao = {
       }
       return result;
   },
+  //给定一个数组与其他数组，删除第一个数组中与其他数组相同的元素，并返回该数组。
+  difference:function(array,...values){
+      var nums=[]
+      var nums1=[].concat(...values)
+      for(i=0;i<array.length;i++){
+          if(nums1.indexOf(array[i])===-1){
+            nums.push(array[i])
+          }
+      }
+      return nums
+  },
+  //Creates a slice of array with n elements dropped from the beginning.
+  drop:function(array,n=1){
+      return array.slice(n)
+  },
+  //Creates a slice of array with n elements dropped from the end.
+  dropRight:function(array,n=1){
+      return array.slice(0,array.length-n)
+  },
+  //Creates a slice of array excluding elements dropped from the end. Elements are dropped until predicate returns falsey. The predicate is invoked with three arguments: (value, index, array).
+  xdropRightWhile:function(){
+
+  }
 
 
-  
+
+
+
 }
 
