@@ -51,7 +51,7 @@ var cliyao = {
   //This method is like _.find except that it returns the index of the first element predicate returns truthy for instead of the element itself.
   xfindIndex:function(array, predicate=_.identity, fromIndex=0){
 
-  }
+  },
   //Gets the first element of array.
   head:function(array){
       return array.length===0?undefined:array[0]
