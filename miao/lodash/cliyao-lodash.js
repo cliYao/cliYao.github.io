@@ -36,10 +36,7 @@ var cliyao = {
   dropRight:function(array,n=1){
       return array.length-n<0?[]:array.slice(0,array.length-n)
   },
-  //Creates a slice of array excluding elements dropped from the end. Elements are dropped until predicate returns falsey. The predicate is invoked with three arguments: (value, index, array).
-  xdropRightWhile:function(){
 
-  },
   //Fills elements of array with value from start up to, but not including, end.
   fill:function(array, value, start=0, end=array.length){
       for(i=start;i<end;i++){
@@ -48,10 +45,6 @@ var cliyao = {
       return array
   },
 
-  //This method is like _.find except that it returns the index of the first element predicate returns truthy for instead of the element itself.
-  xfindIndex:function(array, predicate=_.identity, fromIndex=0){
-
-  },
   //Gets the first element of array.
   head:function(array){
       return array.length===0?undefined:array[0]
@@ -82,12 +75,10 @@ var cliyao = {
       return nums
   },
 
-  xjoin:function(array, separator=','){
-      var result=""
-      for(i=0;i<array.length;i++){
-          result+=separator+array[i]
-      }
-  },
+
+
+
+
 
 }
 
