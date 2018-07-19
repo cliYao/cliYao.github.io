@@ -97,7 +97,7 @@ var cliyao = {
   //Gets the element at index n of array. If n is negative, the nth element from the end is returned.
   nth:function(array,n){
     n>=0?n=>array[n]:n=>array[array.length+n],
-  }
+  },
   //Removes all given values from array using SameValueZero for equality comparisons.
   pull:function(array, ...values){
       var nums="".concat(...values)
