@@ -131,7 +131,7 @@ var cliyao = {
   },
 
   //反转array，使得第一个元素变为最后一个元素，第二个元素变为倒数第二个元素，依次类推。 
-  reverse:function(array.predicat){
+  reverse:function(array, predicat){
     var ary=[]
     for(i=array.length-1;i>=0;i--){
         ary.push(array[i])
