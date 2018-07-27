@@ -288,8 +288,15 @@ var cliyao = {
       return augend+addend
   },
 
-  differenceBy:function(array, ...values, iteratee=_.identity){return array.filter(a=>!(iteratee(a) in values.map(b=>iteratee(b))))},
+  differenceBy:function(array, values,iteratee){
+    return array.filter(a=>!(iteratee(a) in values.map(b=>iteratee(b))))
+  },
 
+  differenceWith:function(array, values, comparator){
+      return array.filter(item=>!values.some(it=>comparator(it,item)))
+  },
+
+  
 
 
 
