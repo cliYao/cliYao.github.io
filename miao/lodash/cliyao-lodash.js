@@ -283,6 +283,13 @@ var cliyao = {
       return map
   },
 
+  //两个数相加。
+  add:function(augend, addend){
+      return augend+addend
+  },
+
+  differenceBy:function(array, ...values, iteratee=_.identity){return array.filter(a=>!(iteratee(a) in values.map(b=>iteratee(b))))},
+
 
 
 
