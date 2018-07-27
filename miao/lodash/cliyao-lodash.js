@@ -296,7 +296,67 @@ var cliyao = {
       return array.filter(item=>!values.some(it=>comparator(it,item)))
   },
 
-  
+  flatten:function flatten(array){
+      return [].concat(...array)
+  },
+
+  flattenDepth:function(array, depth=1){
+      for(i=0;i<depth;i++){
+        return flatten(array)
+      }
+  },
+
+  flattenDeep:function flattenDeep(array) {
+    return flattenDepth(array, Infinity)
+  },
+
+  isNil:function(value){
+    if(value===null||value===undefined||value===0){
+      return true
+    }else{
+      return false
+    }
+  },
+
+  isNull:function(value){
+      if(value===null){
+        return true
+      }else{
+        return false
+      }
+  },
+
+  isNumber:function(value){
+    if(typeof(value)==="number"){
+      return true
+    }else{
+      return false
+    }
+  },
+
+  isObject:function(value){
+    if(typeof(value)==="object"&&value!==null){
+      return true
+    }else{
+      return false
+    }
+  },
+
+  isObjectLike:function(value){
+    if(value!==null&&typeof(value)==="object"){
+      return true
+    }else{
+      return false
+    }
+  },
+
+  isPlainObject:function(value){
+    if(value._proto_===object.prototype||value._proto_===null){
+      return true
+    }else{
+      return false
+    }
+  },
 
 
 
